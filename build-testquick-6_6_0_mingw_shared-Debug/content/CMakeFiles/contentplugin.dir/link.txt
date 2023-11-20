@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc ..\qml\content\libcontentplugin.a CMakeFiles/contentplugin.dir/contentplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/contentplugin.dir/contentplugin_contentPlugin.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe ..\qml\content\libcontentplugin.a

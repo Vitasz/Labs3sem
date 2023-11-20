@@ -1,0 +1,3 @@
+C:/qtProjects/build-testquick-6_6_0_mingw_shared-Debug/_deps/ds-subbuild/CMakeFiles/ds-populate.dir
+C:/qtProjects/build-testquick-6_6_0_mingw_shared-Debug/_deps/ds-subbuild/CMakeFiles/edit_cache.dir
+C:/qtProjects/build-testquick-6_6_0_mingw_shared-Debug/_deps/ds-subbuild/CMakeFiles/rebuild_cache.dir

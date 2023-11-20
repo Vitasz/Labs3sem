@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\qml\FlowView\libFlowViewplugin.a CMakeFiles/FlowViewplugin.dir/FlowViewplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/FlowViewplugin.dir/FlowViewplugin_FlowViewPlugin.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\qml\FlowView\libFlowViewplugin.a

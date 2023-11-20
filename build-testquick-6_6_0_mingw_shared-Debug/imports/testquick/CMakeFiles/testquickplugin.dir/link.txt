@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc ..\..\qml\testquick\libtestquickplugin.a CMakeFiles/testquickplugin.dir/testquickplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/testquickplugin.dir/testquickplugin_testquickPlugin.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe ..\..\qml\testquick\libtestquickplugin.a

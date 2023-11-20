@@ -1,0 +1,11 @@
+module content
+linktarget contentplugin
+optional plugin contentplugin
+classname contentPlugin
+typeinfo content.qmltypes
+prefer :/content/
+App 1.0 App.qml
+Screen01 1.0 Screen01.ui.qml
+MyLr1 1.0 MyLr1.ui.qml
+LabButton 1.0 LabButton.ui.qml
+

@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="/content/">
+    <file alias="App.qml">C:/qtProjects/testquick/content/App.qml</file>
+    <file alias="Screen01.ui.qml">C:/qtProjects/testquick/content/Screen01.ui.qml</file>
+    <file alias="MyLr1.ui.qml">C:/qtProjects/testquick/content/MyLr1.ui.qml</file>
+    <file alias="LabButton.ui.qml">C:/qtProjects/testquick/content/LabButton.ui.qml</file>
+    <file alias="fonts/fonts.txt">C:/qtProjects/testquick/content/fonts/fonts.txt</file>
+    <file alias="images/c++ico.png">C:/qtProjects/testquick/content/images/c++ico.png</file>
+    <file alias="images/Menu_icon.svg">C:/qtProjects/testquick/content/images/Menu_icon.svg</file>
+    <file alias="fonts/Inter-VariableFont_slnt,wght.ttf">C:/qtProjects/testquick/content/fonts/Inter-VariableFont_slnt,wght.ttf</file>
+    <file alias="fonts/Inter-Thin.ttf">C:/qtProjects/testquick/content/fonts/Inter-Thin.ttf</file>
+    <file alias="fonts/Inter-SemiBold.ttf">C:/qtProjects/testquick/content/fonts/Inter-SemiBold.ttf</file>
+    <file alias="fonts/Inter-Regular.ttf">C:/qtProjects/testquick/content/fonts/Inter-Regular.ttf</file>
+    <file alias="fonts/Inter-Medium.ttf">C:/qtProjects/testquick/content/fonts/Inter-Medium.ttf</file>
+    <file alias="fonts/Inter-Light.ttf">C:/qtProjects/testquick/content/fonts/Inter-Light.ttf</file>
+    <file alias="fonts/Inter-ExtraLight.ttf">C:/qtProjects/testquick/content/fonts/Inter-ExtraLight.ttf</file>
+    <file alias="fonts/Inter-ExtraBold.ttf">C:/qtProjects/testquick/content/fonts/Inter-ExtraBold.ttf</file>
+    <file alias="fonts/Inter-Bold.ttf">C:/qtProjects/testquick/content/fonts/Inter-Bold.ttf</file>
+    <file alias="fonts/Inter-Black.ttf">C:/qtProjects/testquick/content/fonts/Inter-Black.ttf</file>
+    <file alias="images/lab2.png">C:/qtProjects/testquick/content/images/lab2.png</file>
+    <file alias="images/lab3.png">C:/qtProjects/testquick/content/images/lab3.png</file>
+    <file alias="images/lab4.png">C:/qtProjects/testquick/content/images/lab4.png</file>
+  </qresource>
+</RCC>
+

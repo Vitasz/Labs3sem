@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\qml\QtQuick\Studio\Effects\libQuickStudioEffectsplugin.a CMakeFiles/QuickStudioEffectsplugin.dir/QuickStudioEffectsplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/QuickStudioEffectsplugin.dir/QuickStudioEffectsplugin_QtQuick_Studio_EffectsPlugin.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\qml\QtQuick\Studio\Effects\libQuickStudioEffectsplugin.a

@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\..\qml\QtQuick\Studio\EventSimulator\libQuickStudioEventSimulatorplugin.a CMakeFiles/QuickStudioEventSimulatorplugin.dir/QuickStudioEventSimulatorplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/QuickStudioEventSimulatorplugin.dir/QuickStudioEventSimulatorplugin_QtQuick_Studio_EventSimulatorPlugin.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\..\qml\QtQuick\Studio\EventSimulator\libQuickStudioEventSimulatorplugin.a

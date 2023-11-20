@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/Main">C:/qtProjects/build-testquick-6_6_0_mingw_shared-Debug/qml/Main</file>
+
+  </qresource>
+</RCC>
