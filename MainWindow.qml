@@ -1,11 +1,12 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-
+import "Lab1"
 Window {
     visible: true
     width: 1920
     height: 1024
+    color: "white"
     visibility: Window.FullScreen
     //flags: Qt.Window | Qt.FramelessWindowHint
     StackView {
