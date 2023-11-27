@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libcontent.a CMakeFiles/content.dir/content_autogen/mocs_compilation.cpp.obj CMakeFiles/content.dir/content_qmltyperegistrations.cpp.obj CMakeFiles/content.dir/.rcc/qmlcache/content_App_qml.cpp.obj CMakeFiles/content.dir/.rcc/qmlcache/content_Screen01.ui_qml.cpp.obj CMakeFiles/content.dir/.rcc/qmlcache/content_MyLr1.ui_qml.cpp.obj CMakeFiles/content.dir/.rcc/qmlcache/content_LabButton.ui_qml.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libcontent.a

@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\qml\QtQuick\Studio\MultiText\libQuickStudioMultiTextplugin.a CMakeFiles/QuickStudioMultiTextplugin.dir/QuickStudioMultiTextplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/QuickStudioMultiTextplugin.dir/QuickStudioMultiTextplugin_QtQuick_Studio_MultiTextPlugin.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\qml\QtQuick\Studio\MultiText\libQuickStudioMultiTextplugin.a

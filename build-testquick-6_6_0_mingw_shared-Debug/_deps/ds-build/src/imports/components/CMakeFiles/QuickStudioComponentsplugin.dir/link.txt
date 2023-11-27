@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\qml\QtQuick\Studio\Components\libQuickStudioComponentsplugin.a CMakeFiles/QuickStudioComponentsplugin.dir/QuickStudioComponentsplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/QuickStudioComponentsplugin.dir/QuickStudioComponentsplugin_QtQuick_Studio_ComponentsPlugin.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\qml\QtQuick\Studio\Components\libQuickStudioComponentsplugin.a

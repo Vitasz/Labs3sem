@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc ..\..\..\..\..\qml\QtQuick\Studio\LogicHelper\libQuickStudioLogicHelperplugin.a CMakeFiles/QuickStudioLogicHelperplugin.dir/QuickStudioLogicHelperplugin_autogen/mocs_compilation.cpp.obj CMakeFiles/QuickStudioLogicHelperplugin.dir/QuickStudioLogicHelperplugin_QtQuick_Studio_LogicHelperPlugin.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe ..\..\..\..\..\qml\QtQuick\Studio\LogicHelper\libQuickStudioLogicHelperplugin.a

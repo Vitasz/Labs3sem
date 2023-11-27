@@ -1,2 +1,0 @@
-C:\msys64\mingw64\bin\ar.exe qc libtestquick.a CMakeFiles/testquick.dir/testquick_autogen/mocs_compilation.cpp.obj CMakeFiles/testquick.dir/testquick_qmltyperegistrations.cpp.obj CMakeFiles/testquick.dir/.rcc/qmlcache/testquick_Constants_qml.cpp.obj CMakeFiles/testquick.dir/.rcc/qmlcache/testquick_DirectoryFontLoader_qml.cpp.obj CMakeFiles/testquick.dir/.rcc/qmlcache/testquick_EventListModel_qml.cpp.obj CMakeFiles/testquick.dir/.rcc/qmlcache/testquick_EventListSimulator_qml.cpp.obj
-C:\msys64\mingw64\bin\ranlib.exe libtestquick.a
