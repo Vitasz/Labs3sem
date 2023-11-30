@@ -7,7 +7,7 @@ import QtQuick.Shapes
 import "qrc:/../images"
 Page {
     id: main
-    //width: 1920
+    width: 1920
     //height: 1024
 
     visible: true
@@ -53,27 +53,30 @@ Page {
     ScrollView {
         id: scrollView
         anchors.left: rectangle.right
-        anchors.leftMargin: 100
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.topMargin: 30
+        anchors.leftMargin: 25
         anchors.rightMargin: 50
-        y: 30
+        width: parent.width
         clip: false
         height: main.height - y
-        width: main.width - x - 150
         ColumnLayout{
-            x: 0
-            y: 0
+            anchors.fill: parent
+            anchors.rightMargin: -320
+            anchors.horizontalCenter: parent.horizontalCenter
+           // Layout.fillWidth: true
             //width: 1809
             //height: 737
             //anchors.rightMargin: -3
-            anchors.fill: parent
             //anchors.bottomMargin: 0
             //anchors.rightMargin: 0
             //margins: 3
-            Item{
+            /*Item{
                 id: item1
                 anchors.fill: parent
                 ColumnLayout{
-                    x: 0
+                    x: 30
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: 5
                     Text{
@@ -103,16 +106,16 @@ Page {
                 Shape{
                     id: mainShape
                     x: 0; y: 0;
-                    width: 1085; height: 984;
+                    width: 1000; height: main.height/10*9;
                     ShapePath{
 
                         startX: 0
-                        startY: 963
+                        startY: mainShape.height
                         PathLine {
-                            x: 604; y: 963
+                            x: 650; y: mainShape.height
                         }
                         PathLine{
-                            x: 1061;
+                            x: 1000;
                             y: 0;
                         }
                         capStyle: ShapePath.SquareCap
@@ -124,7 +127,7 @@ Page {
                 }
                 Text{
                     x: 205;
-                    y: 915
+                    y: mainShape.height-100
                     property string link: "https://onedrive.live.com/?authkey=%21AAEcehJrYtdi4w8&cid=187CCF51BB4995EC&id=187CCF51BB4995EC%2185691&parId=187CCF51BB4995EC%2185682&o=OneUp"
                     Layout.alignment: Qt.AlignCenter
                     horizontalAlignment: Text.AlignHCenter
@@ -146,32 +149,44 @@ Page {
 
                     MainButton{
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                        width: 400
+                        width: 300
                         bttnText: "Информация"
                     }
 
                     MainDottedLine{
-                        width: 516
+                        width: 416
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     }
 
                     MainButton{
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                        width: 528
+                        width: 428
                         bttnText: "Реализация"
                     }
                     MainDottedLine{
-                        width: 644
+                        width: 544
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     }
                     MainButton{
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                        width: 656
+                        width: 556
                         bttnText: "Тестирование"
                     }
                 }
             }
+*/
+            ColumnLayout{
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.fillWidth: true
+                Text{
+                    text: qsTr("Краткая информация")
+                    Layout.alignment: Qt.AlignCenter
 
+
+                    font.letterSpacing: 2
+                }
+
+            }
         }
 
     }

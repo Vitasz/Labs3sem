@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
+
 import "Lab1"
+
 Window {
     visible: true
     width: 1920
