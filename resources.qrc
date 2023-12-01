@@ -13,6 +13,7 @@
         <file>Lab1Screen.qml</file>
         <file>MainButton.qml</file>
         <file>MainDottedLine.qml</file>
+        <file>Lab1Card.qml</file>
     </qresource>
     <qresource prefix="/images">
         <file>images/home.svg</file>
@@ -24,7 +25,6 @@
         <file>images/Menu_icon.svg</file>
     </qresource>
     <qresource prefix="/fonts">
-        <file>fonts/fonts.txt</file>
         <file>fonts/Inter-Black.ttf</file>
         <file>fonts/Inter-Bold.ttf</file>
         <file>fonts/Inter-ExtraBold.ttf</file>
@@ -34,6 +34,7 @@
         <file>fonts/Inter-Regular.ttf</file>
         <file>fonts/Inter-SemiBold.ttf</file>
         <file>fonts/Inter-Thin.ttf</file>
-        <file>fonts/Inter-VariableFont_slnt,wght.ttf</file>
+        <file>fonts/AzeretMono-Italic.ttf</file>
+        <file>fonts/AzeretMono-Light.ttf</file>
     </qresource>
 </RCC>

@@ -6,10 +6,10 @@ import "Lab1"
 
 Window {
     visible: true
-    width: 1920
-    height: 1024
+    width: 1366
+    height: 768
     color: "white"
-    visibility: Window.FullScreen
+    //visibility: Window.FullScreen
     //flags: Qt.Window | Qt.FramelessWindowHint
     StackView {
         id: stackView
@@ -23,6 +23,7 @@ Window {
                 }
             }
 
-        initialItem: Lab1Screen {}
+        initialItem: Lab1Screen {
+        }
     }
 }

@@ -4,8 +4,9 @@ import QtQuick.Shapes
 Shape{
     id: shape
     width: 300
-    height: 237
+    height: 200
     property string bttnText: ""
+    property int scrollTo: 0
     ShapePath {
         id: shapepath
         //anchors.right: parent
@@ -14,8 +15,8 @@ Shape{
         fillColor: "white"
 
         startX: 0; startY: 0
-        PathLine{ x: -105; y: 237 }
-        PathLine{ x: shape.width; y: 237 }
+        PathLine{ x: -90; y: 200 }
+        PathLine{ x: shape.width; y: 200 }
         PathLine{ x: shape.width; y: 0 }
         PathLine{ x: 0; y: 0;  }
 
@@ -42,6 +43,7 @@ Shape{
         font.family: "Inter Black"
     }
     MouseArea {
+        id: mousearea
         anchors.fill: shape
         hoverEnabled: true
 
@@ -55,6 +57,9 @@ Shape{
             shapepath.fillColor = "white"
             shapepath.strokeColor = "#03053C"
             text.color = "#000000"
+        }
+        onClicked: {
+            scrollView.contentItem.contentY = scrollTo
         }
         cursorShape: Qt.PointingHandCursor
     }
