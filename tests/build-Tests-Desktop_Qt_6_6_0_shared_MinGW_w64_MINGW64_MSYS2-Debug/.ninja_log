@@ -1,0 +1,12 @@
+# ninja log v5
+22	746	7233107708773569	MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
+22	746	7233107708773569	MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
+22	746	7233107708773569	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
+22	746	7233107708773569	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
+701	748	7233107422361333	CMakeFiles/MemorySpanTest.dir/MemorySpanTest_autogen/mocs_compilation.cpp.obj	8fc459c14369c977
+759	3648	7233107737796768	CMakeFiles/MemorySpanTest.dir/tst_memoryspantest.cpp.obj	2ed2e80041d7f99f
+3648	3729	7233107738576746	MemorySpanTest.exe	8b81f51015afbae8
+25	126	7233127442207583	MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
+25	126	7233127442207583	MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
+25	126	7233127442207583	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
+25	126	7233127442207583	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b

@@ -1,0 +1,6 @@
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/MemorySpanTest.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/test.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/edit_cache.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/rebuild_cache.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/MemorySpanTest_autogen_timestamp_deps.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/MemorySpanTest_autogen.dir

@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>test.qml</file>
+        <file>MainScreen.qml</file>
+        <file>LabCard.qml</file>
+        <file>Lab2Screen.qml</file>
+        <file>Lab3Screen.qml</file>
+        <file>Lab4Screen.qml</file>
+        <file>MainWindow.qml</file>
+        <file>Menu.qml</file>
+    </qresource>
+    <qresource prefix="/Lab1">
+        <file>Lab1Screen.qml</file>
+        <file>MainButton.qml</file>
+        <file>MainDottedLine.qml</file>
+        <file>Lab1Card.qml</file>
+        <file>CodePopup.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>images/home.svg</file>
+        <file>images/lab1.png</file>
+        <file>images/lab2.png</file>
+        <file>images/lab3.png</file>
+        <file>images/lab4.png</file>
+        <file>images/logo.svg</file>
+        <file>images/Menu_icon.svg</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>fonts/Inter-Black.ttf</file>
+        <file>fonts/Inter-Bold.ttf</file>
+        <file>fonts/Inter-ExtraBold.ttf</file>
+        <file>fonts/Inter-ExtraLight.ttf</file>
+        <file>fonts/Inter-Light.ttf</file>
+        <file>fonts/Inter-Medium.ttf</file>
+        <file>fonts/Inter-Regular.ttf</file>
+        <file>fonts/Inter-SemiBold.ttf</file>
+        <file>fonts/Inter-Thin.ttf</file>
+        <file>fonts/AzeretMono-Italic.ttf</file>
+        <file>fonts/AzeretMono-Light.ttf</file>
+    </qresource>
+</RCC>
