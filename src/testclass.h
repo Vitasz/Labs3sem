@@ -2,12 +2,12 @@
 #include <QFuture>
 #include <QtConcurrent>
 
-class TestClass : public QObject {
+class BaseTestClass : public QObject {
     Q_OBJECT
     Q_PROPERTY(int n READ N WRITE setN NOTIFY nChanged)
      Q_PROPERTY(double result READ getResult)
 public:
-    explicit TestClass(QObject *parent = nullptr) : QObject(parent), m_N(0) {}
+    explicit BaseTestClass(QObject *parent = nullptr) : QObject(parent), m_N(0) {}
 
     int N() const { return m_N; }
     void setN(int n) {

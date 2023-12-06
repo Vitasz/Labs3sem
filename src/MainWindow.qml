@@ -23,7 +23,7 @@ Window {
                 }
             }
 
-        initialItem: Lab1Screen {
+        initialItem: MainScreen {
         }
     }
 }

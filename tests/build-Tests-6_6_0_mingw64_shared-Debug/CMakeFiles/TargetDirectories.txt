@@ -1,0 +1,5 @@
+C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/CMakeFiles/MemorySpanTest.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/CMakeFiles/test.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/CMakeFiles/edit_cache.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/CMakeFiles/rebuild_cache.dir
+C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/CMakeFiles/MemorySpanTest_autogen.dir

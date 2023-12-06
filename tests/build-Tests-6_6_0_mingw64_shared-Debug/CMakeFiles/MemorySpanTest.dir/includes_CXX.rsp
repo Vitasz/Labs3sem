@@ -1,0 +1,1 @@
+-I"C:/qtProjects/Labs3sem/tests/build-Tests-6_6_0_mingw64_shared-Debug/MemorySpanTest_autogen/include" -isystem C:/msys64/mingw64/include/QtTest -isystem C:/msys64/mingw64/include/QtCore -isystem "C:/msys64/mingw64/share/qt5/mkspecs/win32-g++"

@@ -51,9 +51,10 @@ Page  {
                     Layout.leftMargin: 50
 
                     iconPath: "images/images/lab1.png"
-                    labName: "Lab1/Лабораторная работа №1"
+                    labName: "Лабораторная работа №1"
                     shortInfo1: "<html><ul><li>Smart Pointer</li><li>Unique Pointer</li></html>"
                     shortInfo2: "<html><ul><li>Shared Pointer</li><li>MemorySpan</li></html>"
+                    labLoad: "qrc:/Lab1/Lab1Screen.qml"
                 }
                 LabCard {
                     id: lr2

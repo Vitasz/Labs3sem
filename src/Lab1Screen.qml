@@ -4,7 +4,8 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes
 import QtCharts
-import qml.testclass
+
+import qml.testclasssmrt
 //import testquick
 import "qrc:/../images"
 Page {
@@ -422,6 +423,7 @@ private:
                     }
                     Pane{
                         Layout.alignment: Qt.AlignHCenter
+
                         ColumnLayout{
                             Layout.alignment: Qt.AlignHCenter
                             Text{
@@ -433,86 +435,155 @@ private:
                                 font.pointSize: 30
                             }
                             RowLayout{
-                                id: chart1
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.fillWidth: true
                                 ChartView {
-                                    title: "Line Chart"
-                                    Layout.alignment: Qt.AlignHCenter
-                                    antialiasing: true
-                                    height: 500
-                                    width: 500
-                                    LineSeries {
-                                        name: "Line"
-                                        XYPoint { x: 0; y: 0 }
-                                        XYPoint { x: 1.1; y: 2.1 }
-                                        XYPoint { x: 1.9; y: 3.3 }
-                                        XYPoint { x: 2.1; y: 2.1 }
-                                        XYPoint { x: 2.9; y: 4.9 }
-                                        XYPoint { x: 3.4; y: 3.0 }
-                                        XYPoint { x: 4.1; y: 3.3 }
-                                    }
-                                }
-                                ChartView {
-                                    id: chartView
                                     title: "На больших данных"
                                     height: 500
                                     width: 500
                                     antialiasing: true
                                     //backgroundColor: "transparent"
                                     ValuesAxis{
-                                        id: axisX
+                                        id: smartAxisXsmall
                                         min: 0;
-                                        max: 0
-
+                                        max: 0;
+                                        titleText: "N"
+                                        labelFormat: "%d"
                                     }
                                     ValuesAxis{
-                                        id: axisY
+                                        id: smartAxisYsmall
+                                        labelFormat: "%.1f"
                                         min:0;
                                         max:0;
+                                        tickCount: 4;
+                                        minorTickCount: 4;
+                                        titleText: "time [s]"
                                     }
                                     SplineSeries {
-                                        id: splineSeriesTest
+                                        id: smartSplineSeriesTESTsmall
                                         name: "My Smart Pointer"
                                         XYPoint{
                                             x:0; y:0;
                                         }
-                                        axisX: axisX
+                                        axisX: smartAxisXsmall
 
-                                        axisY: axisY
+                                        axisY: smartAxisYsmall
 
                                     }
-                                    SplineSeries {
-                                        id: splineSeriasO
-                                        name: "STL Smart Pointer"
-                                        axisX: axisX
 
-                                        axisY: axisY
+                                    SplineSeries {
+                                        id: smartSplineSeriesINTsmall
+                                        name: "Sequence<int>"
+                                        axisX: smartAxisXsmall
+
+                                        axisY: smartAxisYsmall
                                         XYPoint{
                                             x:0; y:0;
                                         }
                                     }
-                                    TestClass {
-                                        id: testClass
-                                        n: 10
-                                        onTestFinished:{
-                                            var result = testClass.result*n*n/2;
-                                            splineSeriesTest.append(n, result)
-                                            if (axisX.min > n) axisX.min = n
-                                            if (axisX.max < n) axisX.max = n
-                                            if (axisY.min > result) axisY.min = result
-                                            if (axisY.max < result) axisY.max = result
-                                            if (n<100) n+= 10
 
+                                    TestClassSmartPointers {
+                                        id: smartTestClasssmall
 
+                                        onTestSequenceResult: function(n, result){
+                                            smartSplineSeriesINTsmall.append(n, result)
+                                            if (smartAxisXsmall.min > n) smartAxisXsmall.min = n
+                                            if (smartAxisYsmall.min > result) smartAxisYsmall.min = result-0.1
+                                            if (smartAxisXsmall.max < n) smartAxisXsmall.max = n
+                                            if (smartAxisYsmall.max < result) smartAxisYsmall.max = result+0.1
+                                            if (n<10000){
+                                                smartTestClasssmall.testSequence(n+250)
+                                            }
                                         }
-                                        onNChanged: {
-                                            testClass.testFunction()
+                                        onTestMySmartResult: function(n, result){
+                                            smartSplineSeriesTESTsmall.append(n, result)
+                                            if (smartAxisXsmall.min > n) smartAxisXsmall.min = n
+                                            if (smartAxisYsmall.min > result) smartAxisYsmall.min = result-0.1
+                                            if (smartAxisXsmall.max < n) smartAxisXsmall.max = n
+                                            if (smartAxisYsmall.max < result) smartAxisYsmall.max = result+0.1
+                                            if (n<10000){
+                                                smartTestClasssmall.testMySmartPointer(n+250)
+                                            }
                                         }
-
                                     }
                                     Component.onCompleted: {
-                                        testClass.testFunction()
+                                        smartTestClasssmall.testSequence(1000);
+                                        smartTestClasssmall.testMySmartPointer(1000)
+                                    }
+                                }
+
+                                ChartView {
+                                    id: smartBig
+                                    title: "На больших данных"
+                                    height: 500
+                                    width: 500
+                                    antialiasing: true
+                                    //backgroundColor: "transparent"
+                                    ValuesAxis{
+                                        id: smartAxisXbig
+                                        min: 0;
+                                        max: 0;
+                                        titleText: "N"
+                                        labelFormat: "%d"
+                                    }
+                                    ValuesAxis{
+                                        id: smartAxisYbig
+                                        labelFormat: "%.1f"
+                                        min:0;
+                                        max:0;
+                                        tickCount: 4;
+                                        minorTickCount: 4;
+                                        titleText: "time [s]"
+                                    }
+                                    SplineSeries {
+                                        id: smartSplineSeriesTESTbig
+                                        name: "My Smart Pointer"
+                                        XYPoint{
+                                            x:0; y:0;
+                                        }
+                                        axisX: smartAxisXbig
+
+                                        axisY: smartAxisYbig
+
+                                    }
+
+                                    SplineSeries {
+                                        id: smartSplineSeriesINTbig
+                                        name: "Sequence<int>"
+                                        axisX: smartAxisXbig
+
+                                        axisY: smartAxisYbig
+                                        XYPoint{
+                                            x:0; y:0;
+                                        }
+                                    }
+                                    TestClassSmartPointers {
+                                        id: smartTestClassbig
+
+                                        onTestSequenceResult: function(n, result){
+                                            smartSplineSeriesINTbig.append(n, result)
+                                            if (smartAxisXbig.min > n) smartAxisXbig.min = n
+                                            if (smartAxisYbig.min > result) smartAxisYbig.min = result-0.1
+                                            if (smartAxisXbig.max < n) smartAxisXbig.max = n
+                                            if (smartAxisYbig.max < result) smartAxisYbig.max = result+0.1
+                                            if (n<1000000){
+                                                smartTestClassbig.testSequence(n+10000)
+                                            }
+                                        }
+                                        onTestMySmartResult: function(n, result){
+                                            smartSplineSeriesTESTbig.append(n, result)
+                                            if (smartAxisXbig.min > n) smartAxisXbig.min = n
+                                            if (smartAxisYbig.min > result) smartAxisYbig.min = result-0.1
+                                            if (smartAxisXbig.max < n) smartAxisXbig.max = n
+                                            if (smartAxisYbig.max < result) smartAxisYbig.max = result+0.1
+                                            if (n<1000000){
+                                                smartTestClassbig.testMySmartPointer(n+10000)
+                                            }
+                                        }
+                                    }
+                                    Component.onCompleted: {
+                                        smartTestClassbig.testSequence(100000);
+                                        smartTestClassbig.testMySmartPointer(100000)
                                     }
 
                                 }
