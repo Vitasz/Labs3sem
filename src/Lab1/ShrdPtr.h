@@ -67,8 +67,9 @@ private:
             (*referenceCount)--;
             if (*referenceCount == 0) {
                 delete referenceCount;
-                if (this->ptr) {
+                if (this->ptr){
                     delete this->ptr;
+                    this->ptr = nullptr;
                 }
             }
         }

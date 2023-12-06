@@ -10,7 +10,6 @@ public:
     SmrtPtr(T* p) : ptr(p) {}
 
     ~SmrtPtr()
-
     {
         if (ptr) {
             delete ptr;
