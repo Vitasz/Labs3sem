@@ -13,7 +13,7 @@ int main(int argc, char** argv){
     QQmlContext* ctx = engine.rootContext();
 
     //ctx->setContextProperty("backend", new Backend());
-    qmlRegisterType<BaseTestClass>("qml.testclass", 1, 0, "TestClass");
+    //qmlRegisterType<BaseTestClass>("qml.testclass", 1, 0, "TestClass");
     qmlRegisterType<TestClassSmartPointers>("qml.testclasssmrt", 1, 0, "TestClassSmartPointers");
 
     //SmrtPtr<int> test = SmrtPtr<int>(new int(10));

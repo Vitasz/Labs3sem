@@ -2,7 +2,7 @@
 #include <QFuture>
 #include <QtConcurrent>
 #include <QTimer>
-
+#include <iostream>
 #include "Lab1.h"
 
 class TestClassSmartPointers : public QObject {
@@ -43,17 +43,15 @@ public slots:
         return QtConcurrent::run([=]() {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::vector<int*> vec;
+            int* arr = new int[n];
             for (int i = 0; i < n; ++i) {
-                vec.push_back(new int(i));
+                *(arr+i) = i;
             }
-
+            delete[] arr;
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
-            for (int i = 0; i < n; ++i) {
-                delete vec[i];
-            }
+
             emit  this->testSequenceResult(n, duration.count()/1000.0);
             return duration.count() / 1000.0;
         });
@@ -129,6 +127,29 @@ public slots:
         });
     }
 
+    //MEMORY SPAN
+    QFuture<double> testMyMemoryspanPointer(int n) {
+        return QtConcurrent::run([=]() {
+            auto start = std::chrono::high_resolution_clock::now();
+
+            MemorySpan<int> memorySpan(new int[n], n);
+            MsPtr<int> index = memorySpan.locate(0);
+
+            for(int i = 0; i < n-1; i++){
+                *(index) = i;
+
+                //std::cout<<*(index)<<'\n';
+                index++;
+            }
+            delete[] memorySpan.getData();
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
+            //std::cout<<duration<<'\n';
+            emit this->testMyMemoryspanResult(n, duration.count()/1000.0);
+            return duration.count()/1000.0;
+        });
+    }
+
 
 signals:
     void testSequenceResult(int n, double result);
@@ -136,6 +157,8 @@ signals:
 
     void testSTLSharedResult(int n, double result);
     void testMySharedResult(int n, double result);
+
+    void testMyMemoryspanResult(int n, double result);
 
     void testSTLUniqueResult(int n, double result);
     void testMyUniqueResult(int n, double result);

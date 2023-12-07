@@ -244,7 +244,7 @@ href='" + link + "'>useless_file.pdf</a>"
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: qsTr("В данной лабораторной работе была реализована концепция умных указателей.\n Для Smart, Unique, Shared были проведены нагрузочные тесты.\n MemorySpan и MSPtr покрыты Unit-тестами.")
+                        text: qsTr("В данной лабораторной работе была реализована концепция умных указателей.\n Для Smart, Unique, Memoryspan были проведены нагрузочные тесты.\n MemorySpan и MSPtr покрыты Unit-тестами.")
                         horizontalAlignment: Text.AlignHCenter
                         width: Window.width
                         height: 10
@@ -315,23 +315,23 @@ href='" + link + "'>useless_file.pdf</a>"
                                 className: "UnqPtr"
                                 textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008080'>#pragma once</span>
 <span style='color: #000080; font-weight: bold'>template</span>&lt;<span style='color: #000080; font-weight: bold'>class</span> T&gt;
-<span style='color: #000080; font-weight: bold'>class</span> SharedPtr {
+<span style='color: #000080; font-weight: bold'>class</span> MemoryspanPtr {
 public:
 <span style='color: #008800; font-style: italic'>// Constructor</span>
-<span style='color: #000080; font-weight: bold'>explicit</span> SharedPtr(T* ptr = nullptr) : m_ptr(ptr), m_refCount(<span style='color: #000080; font-weight: bold'>new</span> <span style='color: #000080; font-weight: bold'>int</span>(<span style='color: #0000FF'>1</span>)) {}
+<span style='color: #000080; font-weight: bold'>explicit</span> MemoryspanPtr(T* ptr = nullptr) : m_ptr(ptr), m_refCount(<span style='color: #000080; font-weight: bold'>new</span> <span style='color: #000080; font-weight: bold'>int</span>(<span style='color: #0000FF'>1</span>)) {}
 
 <span style='color: #008800; font-style: italic'>// Copy constructor</span>
-SharedPtr(<span style='color: #000080; font-weight: bold'>const</span> SharedPtr&amp; other) : m_ptr(other.m_ptr), m_refCount(other.m_refCount) {
+MemoryspanPtr(<span style='color: #000080; font-weight: bold'>const</span> MemoryspanPtr&amp; other) : m_ptr(other.m_ptr), m_refCount(other.m_refCount) {
 (*m_refCount)++;
 }
 
 <span style='color: #008800; font-style: italic'>// Destructor</span>
-~SharedPtr() {
+~MemoryspanPtr() {
 release();
 }
 
 <span style='color: #008800; font-style: italic'>// Assignment operator</span>
-SharedPtr&amp; <span style='color: #000080; font-weight: bold'>operator</span>=(<span style='color: #000080; font-weight: bold'>const</span> SharedPtr&amp; other) {
+MemoryspanPtr&amp; <span style='color: #000080; font-weight: bold'>operator</span>=(<span style='color: #000080; font-weight: bold'>const</span> MemoryspanPtr&amp; other) {
 <span style='color: #000080; font-weight: bold'>if</span> (<span style='color: #000080; font-weight: bold'>this</span> != &amp;other) {
 release();
 m_ptr = other.m_ptr;
@@ -1160,6 +1160,213 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                     }
                                 }
                             }
+
+                            ColumnLayout {
+                                Layout.alignment: Qt.AlignHCenter
+                                Text {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    horizontalAlignment: Text.AlignHCenter
+                                    text: "Memory Span"
+                                    font.styleName: "Bold"
+                                    font.family: "Inner"
+                                    font.pointSize: 30
+                                }
+                                RowLayout {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    Layout.fillWidth: true
+                                    ChartView {
+                                        title: "На маленьких данных"
+                                        height: 500
+                                        width: 500
+                                        antialiasing: true
+                                        titleFont.pointSize: 15
+                                        backgroundColor: "transparent"
+                                        ValuesAxis {
+                                            id: memoryspanAxisXsmall
+                                            min: 0
+                                            max: 0
+                                            titleText: "N"
+                                            labelFormat: "%d"
+                                        }
+                                        ValuesAxis {
+                                            id: memoryspanAxisYsmall
+                                            labelFormat: "%.1f"
+                                            min: 0
+                                            max: 0
+                                            tickCount: 4
+                                            minorTickCount: 4
+                                            titleText: "time [mcs]"
+                                        }
+                                        SplineSeries {
+                                            id: memoryspanSplineSeriesTESTsmall
+                                            name: "My Memoryspan"
+                                            XYPoint {
+                                                x: 0
+                                                y: 0
+                                            }
+                                            axisX: memoryspanAxisXsmall
+
+                                            axisY: memoryspanAxisYsmall
+                                        }
+
+                                        SplineSeries {
+                                            id: memoryspanSplineSeriesINTsmall
+                                            name: "Sequence<int>"
+                                            axisX: memoryspanAxisXsmall
+
+                                            axisY: memoryspanAxisYsmall
+                                            XYPoint {
+                                                x: 0
+                                                y: 0
+                                            }
+                                        }
+
+                                        TestClassSmartPointers {
+                                            id: memoryspanTestClasssmall
+                                            property int start: 1000
+                                            property int finish: 10000
+                                            property int step: 250
+                                            onTestSequenceResult: function (n, result) {
+                                                memoryspanSplineSeriesINTsmall.append(
+                                                            n, result)
+                                                if (memoryspanSplineSeriesINTsmall.min > n)
+                                                    memoryspanAxisXsmall.min = n
+                                                if (memoryspanAxisYsmall.min > result)
+                                                    memoryspanAxisYsmall.min = result - 0.1
+                                                if (memoryspanAxisXsmall.max < n)
+                                                    memoryspanAxisXsmall.max = n
+                                                if (memoryspanAxisYsmall.max < result)
+                                                    memoryspanAxisYsmall.max = result + 0.1
+                                                if (n < memoryspanTestClasssmall.finish) {
+                                                    memoryspanTestClasssmall.testSequence(
+                                                                n + memoryspanTestClasssmall.step)
+                                                } else {
+                                                    memoryspanTestClasssmall.testMyMemoryspanPointer(
+                                                                memoryspanTestClasssmall.start)
+                                                }
+                                            }
+                                            onTestMyMemoryspanResult: function (n, result) {
+
+                                                memoryspanSplineSeriesTESTsmall.append(
+                                                            n, result)
+                                                if (memoryspanAxisXsmall.min > n)
+                                                    memoryspanAxisXsmall.min = n
+                                                if (memoryspanAxisYsmall.min > result)
+                                                    memoryspanAxisYsmall.min = result - 0.1
+                                                if (memoryspanAxisXsmall.max < n)
+                                                    memoryspanAxisXsmall.max = n
+                                                if (memoryspanAxisYsmall.max < result)
+                                                    memoryspanAxisYsmall.max = result + 0.1
+                                                if (n < memoryspanTestClasssmall.finish) {
+                                                    memoryspanTestClasssmall.testMyMemoryspanPointer(
+                                                                n + memoryspanTestClasssmall.step)
+                                                }
+                                            }
+                                        }
+                                        Component.onCompleted: {
+                                            memoryspanTestClasssmall.testSequence(
+                                                        memoryspanTestClasssmall.start)
+                                        }
+                                    }
+
+                                    ChartView {
+                                        id: memoryspanBig
+                                        title: "На больших данных"
+                                        titleFont.pointSize: 15
+                                        height: 500
+                                        width: 500
+                                        antialiasing: true
+
+                                        backgroundColor: "transparent"
+                                        ValuesAxis {
+                                            id: memoryspanAxisXbig
+                                            min: 0
+                                            max: 0
+                                            titleText: "N"
+                                            labelFormat: "%d"
+                                        }
+                                        ValuesAxis {
+                                            id: memoryspanAxisYbig
+                                            labelFormat: "%.1f"
+                                            min: 0
+                                            max: 0
+                                            tickCount: 4
+                                            minorTickCount: 4
+                                            titleText: "time [mcs]"
+                                        }
+                                        SplineSeries {
+                                            id: memoryspanSplineSeriesTESTbig
+                                            name: "My Memoryspan Pointer"
+                                            XYPoint {
+                                                x: 0
+                                                y: 0
+                                            }
+                                            axisX: memoryspanAxisXbig
+
+                                            axisY: memoryspanAxisYbig
+                                        }
+
+                                        SplineSeries {
+                                            id: memoryspanSplineSeriesINTbig
+                                            name: "Sequence<int>"
+                                            axisX: memoryspanAxisXbig
+
+                                            axisY: memoryspanAxisYbig
+                                            XYPoint {
+                                                x: 0
+                                                y: 0
+                                            }
+                                        }
+                                        TestClassSmartPointers {
+                                            id: memoryspanTestClassbig
+                                            property int start: 100000
+                                            property int finish: 1000000
+                                            property int step: 50000
+                                            onTestSequenceResult: function (n, result) {
+                                                memoryspanSplineSeriesINTbig.append(
+                                                            n, result)
+                                                if (memoryspanAxisXbig.min > n)
+                                                    memoryspanAxisXbig.min = n
+                                                if (memoryspanAxisYbig.min > result)
+                                                    memoryspanAxisYbig.min = result - 0.1
+                                                if (memoryspanAxisXbig.max < n)
+                                                    memoryspanAxisXbig.max = n
+                                                if (memoryspanAxisYbig.max < result)
+                                                    memoryspanAxisYbig.max = result + 0.1
+                                                if (n < memoryspanTestClassbig.finish) {
+                                                    memoryspanTestClassbig.testSequence(
+                                                                n + memoryspanTestClassbig.step)
+                                                } else {
+                                                    memoryspanTestClassbig.testMyMemoryspanPointer(
+                                                                memoryspanTestClassbig.start)
+                                                }
+                                            }
+                                            onTestMyMemoryspanResult: function (n, result) {
+                                                memoryspanSplineSeriesTESTbig.append(
+                                                            n, result)
+                                                if (memoryspanAxisXbig.min > n)
+                                                    memoryspanAxisXbig.min = n
+                                                if (memoryspanAxisYbig.min > result)
+                                                    memoryspanAxisYbig.min = result - 0.1
+                                                if (memoryspanAxisXbig.max < n)
+                                                    memoryspanAxisXbig.max = n
+                                                if (memoryspanAxisYbig.max < result)
+                                                    memoryspanAxisYbig.max = result + 0.1
+                                                if (n < memoryspanTestClassbig.finish) {
+                                                    memoryspanTestClassbig.testMyMemoryspanPointer(
+                                                                n + memoryspanTestClassbig.step)
+                                                }
+                                            }
+
+                                        }
+                                        Component.onCompleted: {
+                                            memoryspanTestClassbig.testSequence(
+                                                        memoryspanTestClassbig.start)
+                                        }
+                                    }
+                                }
+                            }
+
                         }
                     }
                 }

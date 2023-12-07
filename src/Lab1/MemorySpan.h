@@ -91,7 +91,7 @@ public:
     }
 
     T& operator*() const {
-        return span.get(index);
+        return *(span.getData()+index);
     }
 
     T* operator->() const {
