@@ -63,6 +63,7 @@ Page  {
                     labName: "Лабораторная работа №2"
                     shortInfo1: "<html><ul><li>Quick sort</li><li>Selection sort</li></html>"
                     shortInfo2: "<html><ul><li>Radix sort</li><li>Shell sort</li></html>"
+                    labLoad: "qrc:/Lab2/Lab2Screen.qml"
                 }
 
                 LabCard {

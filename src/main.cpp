@@ -3,9 +3,9 @@
 #include <QQmlApplicationEngine>
 #include "testclass.h"
 #include "Lab1/TestClassSmartPointers.h"
-#include "Lab1/Lab1.h"
 #include <QDebug>
 #include <iostream>
+#include "mysorter.h"
 int main(int argc, char** argv){
     QApplication app(argc, argv); //Here etc..
 
@@ -15,9 +15,15 @@ int main(int argc, char** argv){
     //ctx->setContextProperty("backend", new Backend());
     //qmlRegisterType<BaseTestClass>("qml.testclass", 1, 0, "TestClass");
     qmlRegisterType<TestClassSmartPointers>("qml.testclasssmrt", 1, 0, "TestClassSmartPointers");
-
-    //SmrtPtr<int> test = SmrtPtr<int>(new int(10));
-    //qDebug() << *test<<'\n';
-    engine.load("qrc:/MainWindow.qml");
+    qmlRegisterType<SortVisualizer>("SortVisualizer", 1, 0, "SortVisualizer");
+    //SortingAlgorithm sortingAlgorithm;
+    //engine.rootContext()->setContextProperty("sortingAlgorithm", &sortingAlgorithm);
+    const QUrl url(QStringLiteral("qrc:/MainWindow.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+        &app, [url](QObject *obj, const QUrl &objUrl) {
+            if (!obj && url == objUrl)
+                QCoreApplication::exit(-1);
+        }, Qt::QueuedConnection);
+    engine.load(url);
     return app.exec();
 }

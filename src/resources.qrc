@@ -3,7 +3,6 @@
         <file>test.qml</file>
         <file>MainScreen.qml</file>
         <file>LabCard.qml</file>
-        <file>Lab2Screen.qml</file>
         <file>Lab3Screen.qml</file>
         <file>Lab4Screen.qml</file>
         <file>MainWindow.qml</file>
@@ -37,5 +36,8 @@
         <file>fonts/Inter-Thin.ttf</file>
         <file>fonts/AzeretMono-Italic.ttf</file>
         <file>fonts/AzeretMono-Light.ttf</file>
+    </qresource>
+    <qresource prefix="/Lab2">
+        <file>Lab2Screen.qml</file>
     </qresource>
 </RCC>
