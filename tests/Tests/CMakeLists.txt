@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Tests LANGUAGES CXX)
+project(SortsTests LANGUAGES CXX)
 
 enable_testing()
 
@@ -14,8 +14,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(MemorySpanTest tst_memoryspantest.cpp)
-add_test(NAME MemorySpanTest COMMAND MemorySpanTest)
+add_executable(SortsTests tst_sortstests.cpp)
+add_test(NAME SortsTests COMMAND SortsTests)
 
-target_link_libraries(MemorySpanTest PRIVATE Qt${QT_VERSION_MAJOR}::Test)
+target_link_libraries(SortsTests PRIVATE Qt${QT_VERSION_MAJOR}::Test)
 

@@ -1,12 +1,14 @@
 # ninja log v5
-22	746	7233107708773569	MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
-22	746	7233107708773569	MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
-22	746	7233107708773569	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
-22	746	7233107708773569	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
-701	748	7233107422361333	CMakeFiles/MemorySpanTest.dir/MemorySpanTest_autogen/mocs_compilation.cpp.obj	8fc459c14369c977
-759	3648	7233107737796768	CMakeFiles/MemorySpanTest.dir/tst_memoryspantest.cpp.obj	2ed2e80041d7f99f
-3648	3729	7233107738576746	MemorySpanTest.exe	8b81f51015afbae8
-25	126	7233127442207583	MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
-25	126	7233127442207583	MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
-25	126	7233127442207583	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/timestamp	ad6b54d0ef9f264b
-25	126	7233127442207583	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/MemorySpanTest_autogen/mocs_compilation.cpp	ad6b54d0ef9f264b
+4142	4233	7239305605912683	SortsTests.exe	6ff5738dcb2f202e
+778	4142	7239305605019131	CMakeFiles/SortsTests.dir/tst_sortstests.cpp.obj	49d11d91bc0954fd
+24	765	7239305571254623	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+24	765	7239305571254623	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/timestamp	c3fd48efd196d4ce
+797	835	7239293041013490	CMakeFiles/SortsTests.dir/SortsTests_autogen/mocs_compilation.cpp.obj	71603e841a81695c
+24	765	7239305571254623	SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+24	765	7239305571254623	SortsTests_autogen/timestamp	c3fd48efd196d4ce
+24	780	7239306445900903	SortsTests_autogen/timestamp	c3fd48efd196d4ce
+24	780	7239306445900903	SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+24	780	7239306445900903	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/timestamp	c3fd48efd196d4ce
+24	780	7239306445900903	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+794	4270	7239306480792327	CMakeFiles/SortsTests.dir/tst_sortstests.cpp.obj	49d11d91bc0954fd
+4270	4364	7239306481722888	SortsTests.exe	6ff5738dcb2f202e

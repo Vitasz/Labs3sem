@@ -5,7 +5,7 @@ import QtQuick.Controls
 import "Lab1"
 import "Lab2"
 
-Window {
+ApplicationWindow {
     visible: true
     width: 1366
     height: 768

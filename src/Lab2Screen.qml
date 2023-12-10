@@ -37,7 +37,13 @@ Page {
             orientation: Gradient.Vertical
         }
         transformOrigin: Item.Left
-
+        Timer{
+            id: timer
+            interval: 1000
+            onTriggered: {
+                menuicon.visible = true
+            }
+        }
         Image {
             id: menuicon
             x: 24
@@ -49,6 +55,7 @@ Page {
             anchors.top: parent.top
             transformOrigin: Item.Top
             fillMode: Image.PreserveAspectFit
+            visible: false
             MouseArea{
                 id: exit
                 anchors.fill: parent
@@ -56,6 +63,10 @@ Page {
                 enabled: true
                 onClicked: {
                     stackView.pop()
+                }
+                onEnabledChanged: {
+                    if (enabled) timer.start();
+                    else timer.stop()
                 }
             }
         }
@@ -307,21 +318,129 @@ href='" + link + "'>useless_file.pdf</a>"
                             iconPath: "qrc:/images/images/lab2.png"
                             name: "<font color='#f97583'>Bubble<//font><font color='#B392F0'> sort<//font>"
                             className: ""
+                            textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T, <span style='color: #008800; font-weight: bold'>typename</span> Comparator<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>void</span> bubbleSort(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #333333'>&amp;</span>arr, Comparator cmp) {
+    <span style='color: #333399; font-weight: bold'>int</span> n <span style='color: #333333'>=</span> arr.size();
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>0</span>; i <span style='color: #333333'>&lt;</span> n <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>; <span style='color: #333333'>++</span>i) {
+        <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> j <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>0</span>; j <span style='color: #333333'>&lt;</span> n <span style='color: #333333'>-</span> i <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>; <span style='color: #333333'>++</span>j) {
+            <span style='color: #008800; font-weight: bold'>if</span> (cmp(arr[j], arr[j <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span>])) {
+                std<span style='color: #333333'>::</span>swap(arr[j], arr[j <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span>]);
+            }
+        }
+    }
+}
+</pre></div>
+"
                         }
                         Lab1Card {
                             iconPath: "qrc:/images/images/lab2.png"
                             name: "<font color='#f97583'>Quick<//font><font color='#B392F0'> sort<//font>"
                             className: ""
+                            textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T, <span style='color: #008800; font-weight: bold'>typename</span> Comparator<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>int</span> partition(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> arr, <span style='color: #333399; font-weight: bold'>int</span> low, <span style='color: #333399; font-weight: bold'>int</span> high, Comparator cmp) {
+    T pivot <span style='color: #333333'>=</span> arr[high];
+    <span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> low <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>;
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> j <span style='color: #333333'>=</span> low; j <span style='color: #333333'>&lt;</span> high; <span style='color: #333333'>++</span>j) {
+        <span style='color: #008800; font-weight: bold'>if</span> (cmp(arr[j], pivot)) {
+            <span style='color: #333333'>++</span>i;
+            std<span style='color: #333333'>::</span>swap(arr[i], arr[j]);
+        }
+    }
+
+    std<span style='color: #333333'>::</span>swap(arr[i <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span>], arr[high]);
+    <span style='color: #008800; font-weight: bold'>return</span> i <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span>;
+}
+
+<span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T, <span style='color: #008800; font-weight: bold'>typename</span> Comparator<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>void</span> quickSort(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> arr, Comparator cmp) {
+    <span style='color: #333399; font-weight: bold'>int</span> size <span style='color: #333333'>=</span> arr.size();
+    std<span style='color: #333333'>::</span>stack<span style='color: #333333'>&lt;</span>std<span style='color: #333333'>::</span>pair<span style='color: #333333'>&lt;</span><span style='color: #333399; font-weight: bold'>int</span>, <span style='color: #333399; font-weight: bold'>int</span><span style='color: #333333'>&gt;&gt;</span> stack;
+
+    stack.push({<span style='color: #0000DD; font-weight: bold'>0</span>, size <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>});
+
+    <span style='color: #008800; font-weight: bold'>while</span> (<span style='color: #333333'>!</span>stack.empty()) {
+        <span style='color: #333399; font-weight: bold'>int</span> low <span style='color: #333333'>=</span> stack.top().first;
+        <span style='color: #333399; font-weight: bold'>int</span> high <span style='color: #333333'>=</span> stack.top().second;
+        stack.pop();
+
+        <span style='color: #008800; font-weight: bold'>if</span> (low <span style='color: #333333'>&lt;</span> high) {
+            <span style='color: #333399; font-weight: bold'>int</span> pivotIndex <span style='color: #333333'>=</span> partition(arr, low, high, cmp);
+
+            <span style='color: #888888'>// Push the subarrays onto the stack</span>
+            <span style='color: #008800; font-weight: bold'>if</span> (pivotIndex <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span> <span style='color: #333333'>&gt;</span> low) {
+                stack.push({low, pivotIndex <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>});
+            }
+            <span style='color: #008800; font-weight: bold'>if</span> (pivotIndex <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span> <span style='color: #333333'>&lt;</span> high) {
+                stack.push({pivotIndex <span style='color: #333333'>+</span> <span style='color: #0000DD; font-weight: bold'>1</span>, high});
+            }
+        }
+    }
+}
+</pre></div>
+"
                         }
                         Lab1Card {
                             iconPath: "qrc:/images/images/lab2.png"
                             name: "<font color='#f97583'>Shell <//font><font color='#B392F0'> sort<//font>"
                             className: ""
+                            textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T, <span style='color: #008800; font-weight: bold'>typename</span> Comparator<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>void</span> shellSort(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #333333'>&amp;</span>arr, Comparator cmp) {
+    <span style='color: #333399; font-weight: bold'>int</span> n <span style='color: #333333'>=</span> arr.size();
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> gap <span style='color: #333333'>=</span> n <span style='color: #333333'>/</span> <span style='color: #0000DD; font-weight: bold'>2</span>; gap <span style='color: #333333'>&gt;</span> <span style='color: #0000DD; font-weight: bold'>0</span>; gap <span style='color: #333333'>/=</span> <span style='color: #0000DD; font-weight: bold'>2</span>) {
+        <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> gap; i <span style='color: #333333'>&lt;</span> n; <span style='color: #333333'>++</span>i) {
+            T temp <span style='color: #333333'>=</span> arr[i];
+            <span style='color: #333399; font-weight: bold'>int</span> j;
+
+            <span style='color: #008800; font-weight: bold'>for</span> (j <span style='color: #333333'>=</span> i; j <span style='color: #333333'>&gt;=</span> gap <span style='color: #333333'>&amp;&amp;</span> cmp(arr[j <span style='color: #333333'>-</span> gap], temp); j <span style='color: #333333'>-=</span> gap) {
+                arr[j] <span style='color: #333333'>=</span> arr[j <span style='color: #333333'>-</span> gap];
+            }
+
+            arr[j] <span style='color: #333333'>=</span> temp;
+        }
+    }
+}
+</pre></div>
+"
                         }
                         Lab1Card {
                             iconPath: "qrc:/images/images/lab2.png"
                             name: "<font color='#f97583'>Radix<//font><font color='#B392F0'> sort<//font>"
                             className: ""
+                            textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>void</span> countSort(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #333333'>&amp;</span>arr, <span style='color: #333399; font-weight: bold'>int</span> exp) {
+    <span style='color: #008800; font-weight: bold'>const</span> <span style='color: #333399; font-weight: bold'>int</span> n <span style='color: #333333'>=</span> arr.size();
+    std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> output(n);
+    std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span><span style='color: #333399; font-weight: bold'>int</span><span style='color: #333333'>&gt;</span> count(<span style='color: #0000DD; font-weight: bold'>10</span>, <span style='color: #0000DD; font-weight: bold'>0</span>);
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>0</span>; i <span style='color: #333333'>&lt;</span> n; <span style='color: #333333'>++</span>i) {
+        count[(arr[i] <span style='color: #333333'>/</span> exp) <span style='color: #333333'>%</span> <span style='color: #0000DD; font-weight: bold'>10</span>]<span style='color: #333333'>++</span>;
+    }
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>1</span>; i <span style='color: #333333'>&lt;</span> <span style='color: #0000DD; font-weight: bold'>10</span>; <span style='color: #333333'>++</span>i) {
+        count[i] <span style='color: #333333'>+=</span> count[i <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>];
+    }
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> n <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>; i <span style='color: #333333'>&gt;=</span> <span style='color: #0000DD; font-weight: bold'>0</span>; <span style='color: #333333'>--</span>i) {
+        output[count[(arr[i] <span style='color: #333333'>/</span> exp) <span style='color: #333333'>%</span> <span style='color: #0000DD; font-weight: bold'>10</span>] <span style='color: #333333'>-</span> <span style='color: #0000DD; font-weight: bold'>1</span>] <span style='color: #333333'>=</span> arr[i];
+        count[(arr[i] <span style='color: #333333'>/</span> exp) <span style='color: #333333'>%</span> <span style='color: #0000DD; font-weight: bold'>10</span>]<span style='color: #333333'>--</span>;
+    }
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> i <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>0</span>; i <span style='color: #333333'>&lt;</span> n; <span style='color: #333333'>++</span>i) {
+        arr[i] <span style='color: #333333'>=</span> output[i];
+    }
+}
+
+<span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #333399; font-weight: bold'>void</span> radixSort(std<span style='color: #333333'>::</span>vector<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #333333'>&amp;</span>arr) {
+    T maxElement <span style='color: #333333'>=</span> <span style='color: #333333'>*</span>std<span style='color: #333333'>::</span>max_element(arr.begin(), arr.end());
+
+    <span style='color: #008800; font-weight: bold'>for</span> (<span style='color: #333399; font-weight: bold'>int</span> exp <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>1</span>; maxElement <span style='color: #333333'>/</span> exp <span style='color: #333333'>&gt;</span> <span style='color: #0000DD; font-weight: bold'>0</span>; exp <span style='color: #333333'>*=</span> <span style='color: #0000DD; font-weight: bold'>10</span>) {
+        countSort(arr, exp);
+    }
+}
+</pre></div>
+"
                         }
                     }
                 }

@@ -125,7 +125,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/MemorySpanTest
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/SortsTests
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -187,7 +187,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/.qtc/package-manager/auto-setup.cmake
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Tests
+CMAKE_PROJECT_NAME:STATIC=SortsTests
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/msys64/mingw64/bin/ranlib.exe
@@ -272,15 +272,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-MemorySpanTest_BINARY_DIR:STATIC=C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug
-
-//Value Computed by CMake
-MemorySpanTest_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-MemorySpanTest_SOURCE_DIR:STATIC=C:/qtProjects/Labs3sem/tests/Tests
-
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
 QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
@@ -313,13 +304,13 @@ Qt6Test_DIR:PATH=C:/msys64/mingw64/lib/cmake/Qt6Test
 Qt6_DIR:PATH=C:/msys64/mingw64/lib/cmake/Qt6
 
 //Value Computed by CMake
-Tests_BINARY_DIR:STATIC=C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug
+SortsTests_BINARY_DIR:STATIC=C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug
 
 //Value Computed by CMake
-Tests_IS_TOP_LEVEL:STATIC=ON
+SortsTests_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-Tests_SOURCE_DIR:STATIC=C:/qtProjects/Labs3sem/tests/Tests
+SortsTests_SOURCE_DIR:STATIC=C:/qtProjects/Labs3sem/tests/Tests
 
 //Path to a program.
 WINDEPLOYQT_EXECUTABLE:FILEPATH=C:/msys64/mingw64/bin/windeployqt-qt6.exe
@@ -858,5 +849,5 @@ QT_FEATURE_zstd:INTERNAL=ON
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/MemorySpanTest
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/SortsTests
 

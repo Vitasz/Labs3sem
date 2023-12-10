@@ -1,11 +1,12 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Controls.Imagine
 import QtQuick.Layouts
 
 Item {
     visible: true
     width: 600
     height: 400
+
     Rectangle {
         id: mainRect
         anchors.fill: parent
@@ -95,7 +96,7 @@ Item {
             model: mainRect.array.length
             Rectangle {
                 width: mainRect.width / mainRect.array.length
-                height: mainRect.array[index] * (mainRect.height-20)/mainRect.maxValue
+                height: mainRect.array[index] * (mainRect.height-50)/mainRect.maxValue
                 color: mainRect.colorArray[index] ?  mainRect.colorArray[index] : "steelblue"
                 border.color: "black"
                 anchors.bottom: parent.bottom
@@ -105,13 +106,13 @@ Item {
         }
 
         RowLayout {
-            anchors.horizontalCenter: mainRect
-            anchors.top: mainRect
             spacing: 10
             Button {
                 id: bubblesrtButton
                 text: "Bubble Sort"
                 onClicked: mainRect.bubbleSort()
+
+
             }
             Button {
                 id: quicksrtButton
@@ -127,6 +128,7 @@ Item {
                 id: radixsrtButton
                 text: "Radix Sort"
                 onClicked: mainRect.radixSort()
+
             }
             RadioButton {
                 id: randomButton
