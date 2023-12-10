@@ -717,6 +717,11 @@ SortsTests_autogen/timestamp: \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake \
   C:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake \
+  C:/qtProjects/Labs3sem/src/Lab1/Lab1.h \
+  C:/qtProjects/Labs3sem/src/Lab1/MemorySpan.h \
+  C:/qtProjects/Labs3sem/src/Lab1/ShrdPtr.h \
+  C:/qtProjects/Labs3sem/src/Lab1/SmrtPtr.h \
+  C:/qtProjects/Labs3sem/src/Lab1/UnqPtr.h \
   C:/qtProjects/Labs3sem/src/Lab2/SortingAlgorithms.h \
   C:/qtProjects/Labs3sem/tests/Tests/CMakeLists.txt \
   C:/qtProjects/Labs3sem/tests/Tests/tst_sortstests.cpp \

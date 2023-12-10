@@ -406,17 +406,24 @@ Page {
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "Shared Pointer"
                                 className: "ShrdPtr"
-                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #888888'>// Shared Pointer</span>
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #557799'>#pragma once</span>
+
+<span style='color: #557799'>#include &quot;SmrtPtr.h&quot;</span>
+
+
+<span style='color: #888888'>// Shared Pointer</span>
 <span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
-<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>ShrdPtr</span> <span style='color: #333333'>:</span> <span style='color: #008800; font-weight: bold'>public</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> {
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>ShrdPtr</span> {
 <span style='color: #997700; font-weight: bold'>private:</span>
+
     <span style='color: #333399; font-weight: bold'>unsigned</span> <span style='color: #333399; font-weight: bold'>int</span><span style='color: #333333'>*</span> referenceCount;
+    T<span style='color: #333333'>*</span> ptr;
 
 <span style='color: #997700; font-weight: bold'>public:</span>
-    ShrdPtr(T<span style='color: #333333'>*</span> p) <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(p), referenceCount(<span style='color: #008800; font-weight: bold'>new</span> <span style='color: #333399; font-weight: bold'>unsigned</span> <span style='color: #333399; font-weight: bold'>int</span>(<span style='color: #0000DD; font-weight: bold'>1</span>)) {}
+    ShrdPtr(T<span style='color: #333333'>*</span> p) <span style='color: #333333'>:</span> ptr(p), referenceCount(<span style='color: #008800; font-weight: bold'>new</span> <span style='color: #333399; font-weight: bold'>unsigned</span> <span style='color: #333399; font-weight: bold'>int</span>(<span style='color: #0000DD; font-weight: bold'>1</span>)) {}
 
     <span style='color: #888888'>// Copy constructor</span>
-    ShrdPtr(<span style='color: #008800; font-weight: bold'>const</span> ShrdPtr<span style='color: #333333'>&amp;</span> other) <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(other.ptr), referenceCount(other.referenceCount) {
+    ShrdPtr(<span style='color: #008800; font-weight: bold'>const</span> ShrdPtr<span style='color: #333333'>&amp;</span> other) <span style='color: #333333'>:</span> ptr(other.ptr), referenceCount(other.referenceCount) {
         (<span style='color: #333333'>*</span>referenceCount)<span style='color: #333333'>++</span>;
     }
 
@@ -432,7 +439,7 @@ Page {
     }
 
     <span style='color: #888888'>// Move constructor</span>
-    ShrdPtr(ShrdPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(other.ptr), referenceCount(other.referenceCount) {
+    ShrdPtr(ShrdPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept <span style='color: #333333'>:</span> ptr(other.ptr), referenceCount(other.referenceCount) {
         other.ptr <span style='color: #333333'>=</span> nullptr;
         other.referenceCount <span style='color: #333333'>=</span> nullptr;
     }

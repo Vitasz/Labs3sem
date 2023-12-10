@@ -572,6 +572,11 @@ C:/qtProjects/Labs3sem/tests/Tests/tst_sortstests.cpp
  mdp:C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xsaveoptintrin.h
  mdp:C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xsavesintrin.h
  mdp:C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xtestintrin.h
+ mdp:C:/qtProjects/Labs3sem/src/Lab1/Lab1.h
+ mdp:C:/qtProjects/Labs3sem/src/Lab1/MemorySpan.h
+ mdp:C:/qtProjects/Labs3sem/src/Lab1/ShrdPtr.h
+ mdp:C:/qtProjects/Labs3sem/src/Lab1/SmrtPtr.h
+ mdp:C:/qtProjects/Labs3sem/src/Lab1/UnqPtr.h
  mdp:C:/qtProjects/Labs3sem/src/Lab2/SortingAlgorithms.h
  mdp:C:/qtProjects/Labs3sem/tests/Tests/tst_sortstests.cpp
  mdp:C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/moc_predefs.h

@@ -5,15 +5,17 @@
 
 // Shared Pointer
 template <typename T>
-class ShrdPtr : public SmrtPtr<T> {
+class ShrdPtr {
 private:
+
     unsigned int* referenceCount;
+    T* ptr;
 
 public:
-    ShrdPtr(T* p) : SmrtPtr<T>(p), referenceCount(new unsigned int(1)) {}
+    ShrdPtr(T* p) : ptr(p), referenceCount(new unsigned int(1)) {}
 
     // Copy constructor
-    ShrdPtr(const ShrdPtr& other) : SmrtPtr<T>(other.ptr), referenceCount(other.referenceCount) {
+    ShrdPtr(const ShrdPtr& other) : ptr(other.ptr), referenceCount(other.referenceCount) {
         (*referenceCount)++;
     }
 
@@ -29,7 +31,7 @@ public:
     }
 
     // Move constructor
-    ShrdPtr(ShrdPtr&& other) noexcept : SmrtPtr<T>(other.ptr), referenceCount(other.referenceCount) {
+    ShrdPtr(ShrdPtr&& other) noexcept : ptr(other.ptr), referenceCount(other.referenceCount) {
         other.ptr = nullptr;
         other.referenceCount = nullptr;
     }

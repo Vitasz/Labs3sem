@@ -570,4 +570,9 @@ C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xsaveoptintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xsavesintrin.h \
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/xtestintrin.h \
+  C:/qtProjects/Labs3sem/src/Lab1/Lab1.h \
+  C:/qtProjects/Labs3sem/src/Lab1/MemorySpan.h \
+  C:/qtProjects/Labs3sem/src/Lab1/ShrdPtr.h \
+  C:/qtProjects/Labs3sem/src/Lab1/SmrtPtr.h \
+  C:/qtProjects/Labs3sem/src/Lab1/UnqPtr.h \
   C:/qtProjects/Labs3sem/src/Lab2/SortingAlgorithms.h

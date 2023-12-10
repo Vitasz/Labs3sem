@@ -26,8 +26,7 @@ private slots:
         QVERIFY(*movedPtr == 42);
 
         // Test move assignment
-        UnqPtr<int> anotherUniquePtr;
-        anotherUniquePtr = std::move(movedPtr);
+        UnqPtr<int> anotherUniquePtr= std::move(movedPtr);
         QVERIFY(movedPtr.operator->() == nullptr); // Original pointer should be null
         QVERIFY(*anotherUniquePtr == 42);
     }
@@ -47,8 +46,7 @@ private slots:
         QVERIFY(*copiedPtr == 42);
 
         // Test copy assignment
-        ShrdPtr<int> anotherSharedPtr;
-        anotherSharedPtr = sharedPtr;
+        ShrdPtr<int> anotherSharedPtr= sharedPtr;
         QVERIFY(sharedPtr.operator->() == rawPointer); // Original pointer should remain unchanged
         QVERIFY(*anotherSharedPtr == 42);
 
@@ -58,17 +56,81 @@ private slots:
         QVERIFY(*movedPtr == 42);
 
         // Test move assignment
-        ShrdPtr<int> yetAnotherSharedPtr;
-        yetAnotherSharedPtr = std::move(movedPtr);
+        ShrdPtr<int> yetAnotherSharedPtr = std::move(movedPtr);
         QVERIFY(movedPtr.operator->() == nullptr); // Original pointer should be null
         QVERIFY(*yetAnotherSharedPtr == 42);
 
         // Test reference counting
-        ShrdPtr<int> sharedPtr1(rawPointer);
+        int* rawPointer2 = new int(43);
+        ShrdPtr<int> sharedPtr1(rawPointer2);
         ShrdPtr<int> sharedPtr2 = sharedPtr1;
-        QVERIFY(*sharedPtr1 == 42);
-        QVERIFY(*sharedPtr2 == 42);
+        QVERIFY(*sharedPtr1 == 43);
+        QVERIFY(*sharedPtr2 == 43);
     }
+
+    void testMemorySpan() {
+        int array[] = {1, 2, 3, 4, 5};
+        size_t size = sizeof(array) / sizeof(array[0]);
+
+        MemorySpan<int> memorySpan(array, size);
+
+        QCOMPARE(memorySpan.getData(), array);
+        QCOMPARE(memorySpan.getSize(), size);
+
+        // Test get method
+        UnqPtr<int> element = memorySpan.get(2);
+        QCOMPARE(*element, 3);
+
+        // Test locate method
+        MsPtr<int> msPtr = memorySpan.locate(1);
+        QCOMPARE(*msPtr, 2);
+
+        // Test copy method
+        ShrdPtr<int> copyPtr = memorySpan.copy(3);
+        QCOMPARE(*copyPtr, 4);
+    }
+
+    // Test case for MsPtr
+    void testMsPtr() {
+        int array[] = {1, 2, 3, 4, 5};
+        size_t size = sizeof(array) / sizeof(array[0]);
+
+        MemorySpan<int> memorySpan(array, size);
+
+        // Test MsPtr construction
+        MsPtr<int> msPtr(memorySpan, 2);
+        QCOMPARE(*msPtr, 3);
+
+        // Test pointer arithmetic
+        ++msPtr;
+        QCOMPARE(*msPtr, 4);
+
+        msPtr--;
+        QCOMPARE(*msPtr, 3);
+
+        // Test dereference operator
+        QCOMPARE(*msPtr, 3);
+
+        // Test arrow operator
+        QCOMPARE(msPtr.operator->(), &array[2]);
+    }
+
+    // Test case for out of range exceptions
+    void testOutOfRange() {
+        int array[] = {1, 2, 3, 4, 5};
+        size_t size = sizeof(array) / sizeof(array[0]);
+
+        MemorySpan<int> memorySpan(array, size);
+
+        QVERIFY_EXCEPTION_THROWN(memorySpan.get(10), std::out_of_range);
+        QVERIFY_EXCEPTION_THROWN(memorySpan.locate(10), std::out_of_range);
+        QVERIFY_EXCEPTION_THROWN(memorySpan.copy(10), std::out_of_range);
+
+        QVERIFY_EXCEPTION_THROWN(MsPtr<int>(memorySpan, 10), std::out_of_range);
+        QVERIFY_EXCEPTION_THROWN(++MsPtr<int>(memorySpan, size - 1), std::out_of_range);
+        QVERIFY_EXCEPTION_THROWN(--MsPtr<int>(memorySpan, 0), std::out_of_range);
+    }
+
 };
 
 class SortsTests : public QObject
@@ -195,5 +257,5 @@ private slots:
 };
 
 QTEST_APPLESS_MAIN(SmartPointerTests)
-
+//QTEST_APPLESS_MAIN(SortsTests)
 #include "tst_sortstests.moc"

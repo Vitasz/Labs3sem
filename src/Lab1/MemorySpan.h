@@ -52,7 +52,11 @@ private:
 template <typename T>
 class MsPtr {
 public:
-    MsPtr(const MemorySpan<T>& span, size_t index = 0) : span(span), index(index) {}
+    MsPtr(const MemorySpan<T>& span, size_t index = 0) : span(span), index(index) {
+        if (index > span.getSize()-1){
+            throw std::out_of_range("index out of range");
+        }
+    }
     T* getData() const {
         return span.getData() + index;
     }
