@@ -40,14 +40,22 @@ Page {
         Image {
             id: menuicon
             x: 24
-            width: 43
-            height: 34
-            source: "qrc:/images/images/Menu_icon.svg"
+            width: 30
+            height: 30
+            source: "qrc:/images/images/exit_icon.svg"
             anchors.topMargin: 30
             z: 1
             anchors.top: parent.top
             transformOrigin: Item.Top
             fillMode: Image.PreserveAspectFit
+            MouseArea{
+                id: exit
+                anchors.fill: parent
+                enabled: false
+                onClicked: {
+                    stackView.pop()
+                }
+            }
         }
     }
 
@@ -509,9 +517,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (smartAxisYsmall.max < result)
                                                     smartAxisYsmall.max = result + 0.1
                                                 if (n < smartTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     smartTestClasssmall.testSequence(
                                                                 n + smartTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     smartTestClasssmall.testMySmartPointer(
                                                                 smartTestClasssmall.start)
                                                 }
@@ -528,9 +538,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (smartAxisYsmall.max < result)
                                                     smartAxisYsmall.max = result + 0.1
                                                 if (n < smartTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     smartTestClasssmall.testMySmartPointer(
                                                                 n + smartTestClasssmall.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -603,9 +615,12 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (smartAxisYbig.max < result)
                                                     smartAxisYbig.max = result + 0.1
                                                 if (n < smartTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     smartTestClassbig.testSequence(
                                                                 n + smartTestClassbig.step)
+
                                                 } else {
+                                                    exit.enabled = false
                                                     smartTestClassbig.testMySmartPointer(
                                                                 smartTestClassbig.start)
                                                 }
@@ -622,9 +637,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (smartAxisYbig.max < result)
                                                     smartAxisYbig.max = result + 0.1
                                                 if (n < smartTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     smartTestClassbig.testMySmartPointer(
                                                                 n + smartTestClassbig.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -722,9 +739,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYsmall.max < result)
                                                     uniqueAxisYsmall.max = result + 0.1
                                                 if (n < uniqueTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClasssmall.testSequence(
                                                                 n + uniqueTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     uniqueTestClasssmall.testMyUniquePointer(
                                                                 uniqueTestClasssmall.start)
                                                 }
@@ -741,9 +760,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYsmall.max < result)
                                                     uniqueAxisYsmall.max = result + 0.1
                                                 if (n < uniqueTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClasssmall.testMyUniquePointer(
                                                                 n + uniqueTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     uniqueTestClasssmall.testSTLUniquePointer(
                                                                 uniqueTestClasssmall.start)
                                                 }
@@ -760,9 +781,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYsmall.max < result)
                                                     uniqueAxisYsmall.max = result + 0.1
                                                 if (n < uniqueTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClasssmall.testSTLUniquePointer(
                                                                 n + uniqueTestClasssmall.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -847,9 +870,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYbig.max < result)
                                                     uniqueAxisYbig.max = result + 0.1
                                                 if (n < uniqueTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClassbig.testSequence(
                                                                 n + uniqueTestClassbig.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     uniqueTestClassbig.testMyUniquePointer(
                                                                 uniqueTestClassbig.start)
                                                 }
@@ -866,9 +891,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYbig.max < result)
                                                     uniqueAxisYbig.max = result + 0.1
                                                 if (n < uniqueTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClassbig.testMyUniquePointer(
                                                                 n + uniqueTestClassbig.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     uniqueTestClassbig.testSTLUniquePointer(
                                                                 uniqueTestClassbig.start)
                                                 }
@@ -885,9 +912,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (uniqueAxisYbig.max < result)
                                                     uniqueAxisYbig.max = result + 0.1
                                                 if (n < uniqueTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     uniqueTestClassbig.testSTLUniquePointer(
                                                                 n + uniqueTestClassbig.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -985,9 +1014,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYsmall.max < result)
                                                     sharedAxisYsmall.max = result + 0.1
                                                 if (n < sharedTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClasssmall.testSequence(
                                                                 n + sharedTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     sharedTestClasssmall.testMySharedPointer(
                                                                 sharedTestClasssmall.start)
                                                 }
@@ -1004,9 +1035,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYsmall.max < result)
                                                     sharedAxisYsmall.max = result + 0.1
                                                 if (n < sharedTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClasssmall.testMySharedPointer(
                                                                 n + sharedTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     sharedTestClasssmall.testSTLSharedPointer(
                                                                 sharedTestClasssmall.start)
                                                 }
@@ -1023,9 +1056,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYsmall.max < result)
                                                     sharedAxisYsmall.max = result + 0.1
                                                 if (n < sharedTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClasssmall.testSTLSharedPointer(
                                                                 n + sharedTestClasssmall.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -1110,9 +1145,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYbig.max < result)
                                                     sharedAxisYbig.max = result + 0.1
                                                 if (n < sharedTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClassbig.testSequence(
                                                                 n + sharedTestClassbig.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     sharedTestClassbig.testMySharedPointer(
                                                                 sharedTestClassbig.start)
                                                 }
@@ -1129,14 +1166,17 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYbig.max < result)
                                                     sharedAxisYbig.max = result + 0.1
                                                 if (n < sharedTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClassbig.testMySharedPointer(
                                                                 n + sharedTestClassbig.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     sharedTestClassbig.testSTLSharedPointer(
                                                                 sharedTestClassbig.start)
                                                 }
                                             }
                                             onTestSTLSharedResult: function (n, result) {
+                                                exit.enabled = false
                                                 sharedSplineSeriesSTLbig.append(
                                                             n, result)
                                                 if (sharedAxisXbig.min > n)
@@ -1148,9 +1188,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (sharedAxisYbig.max < result)
                                                     sharedAxisYbig.max = result + 0.1
                                                 if (n < sharedTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     sharedTestClassbig.testSTLSharedPointer(
                                                                 n + sharedTestClassbig.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -1238,9 +1280,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (memoryspanAxisYsmall.max < result)
                                                     memoryspanAxisYsmall.max = result + 0.1
                                                 if (n < memoryspanTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     memoryspanTestClasssmall.testSequence(
                                                                 n + memoryspanTestClasssmall.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     memoryspanTestClasssmall.testMyMemoryspanPointer(
                                                                 memoryspanTestClasssmall.start)
                                                 }
@@ -1258,9 +1302,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (memoryspanAxisYsmall.max < result)
                                                     memoryspanAxisYsmall.max = result + 0.1
                                                 if (n < memoryspanTestClasssmall.finish) {
+                                                    exit.enabled = false
                                                     memoryspanTestClasssmall.testMyMemoryspanPointer(
                                                                 n + memoryspanTestClasssmall.step)
                                                 }
+                                                else exit.enabled = true
                                             }
                                         }
                                         Component.onCompleted: {
@@ -1334,9 +1380,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (memoryspanAxisYbig.max < result)
                                                     memoryspanAxisYbig.max = result + 0.1
                                                 if (n < memoryspanTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     memoryspanTestClassbig.testSequence(
                                                                 n + memoryspanTestClassbig.step)
                                                 } else {
+                                                    exit.enabled = false
                                                     memoryspanTestClassbig.testMyMemoryspanPointer(
                                                                 memoryspanTestClassbig.start)
                                                 }
@@ -1353,9 +1401,11 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                 if (memoryspanAxisYbig.max < result)
                                                     memoryspanAxisYbig.max = result + 0.1
                                                 if (n < memoryspanTestClassbig.finish) {
+                                                    exit.enabled = false
                                                     memoryspanTestClassbig.testMyMemoryspanPointer(
                                                                 n + memoryspanTestClassbig.step)
                                                 }
+                                                else exit.enabled = true
                                             }
 
                                         }

@@ -36,6 +36,7 @@ public slots:
                 delete vec[i];
             }
             emit this->testMySmartResult(n, duration.count()/1000.0);
+
             return duration.count()/1000.0;
         });
     }

@@ -23,6 +23,7 @@
         <file>images/lab4.png</file>
         <file>images/logo.svg</file>
         <file>images/Menu_icon.svg</file>
+        <file>images/exit_icon.svg</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>fonts/Inter-Black.ttf</file>
@@ -38,6 +39,7 @@
         <file>fonts/AzeretMono-Light.ttf</file>
     </qresource>
     <qresource prefix="/Lab2">
+        <file>SortsVisualizer.qml</file>
         <file>Lab2Screen.qml</file>
     </qresource>
 </RCC>
