@@ -2,7 +2,7 @@
 #include <QFuture>
 #include <QtConcurrent>
 #include <QTimer>
-#include <iostream>
+
 #include "Lab1.h"
 
 class TestClassSmartPointers : public QObject {

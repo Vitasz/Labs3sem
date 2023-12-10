@@ -37,7 +37,7 @@ Shape{
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
-        font.letterSpacing: 6
+        font.letterSpacing: 4
         font.pixelSize: 40
         font.styleName: "Black"
         font.family: "Inter Black"

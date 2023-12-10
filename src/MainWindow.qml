@@ -3,6 +3,7 @@ import QtQuick.Window
 import QtQuick.Controls
 
 import "Lab1"
+import "Lab2"
 
 Window {
     visible: true

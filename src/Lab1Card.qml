@@ -90,7 +90,7 @@ Item {
                     }
                     Text {
                         color: "#ffffff"
-                        text: "<font color='#f97583'>class<//font><font color='#B392F0'> "+ className + "<//font>"
+                        text: className == "" ? "" : "<font color='#f97583'>class<//font><font color='#B392F0'> "+ className + "<//font>"
                         font.pixelSize: 20
                         horizontalAlignment: Text.AlignHCenter
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter

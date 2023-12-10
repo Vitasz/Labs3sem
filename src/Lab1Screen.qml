@@ -36,12 +36,20 @@ Page {
             orientation: Gradient.Vertical
         }
         transformOrigin: Item.Left
+        Timer{
+            id: timer
+            interval: 1000
+            onTriggered: {
+                menuicon.visible = true
+            }
+        }
 
         Image {
             id: menuicon
             x: 24
             width: 30
             height: 30
+            visible: false
             source: "qrc:/images/images/exit_icon.svg"
             anchors.topMargin: 30
             z: 1
@@ -52,8 +60,13 @@ Page {
                 id: exit
                 anchors.fill: parent
                 enabled: false
+                cursorShape: Qt.PointingHandCursor
                 onClicked: {
                     stackView.pop()
+                }
+                onEnabledChanged: {
+                    if (enabled) timer.start();
+                    else timer.stop()
                 }
             }
         }
@@ -141,6 +154,10 @@ href='" + link + "'>useless_file.pdf</a>"
                             font.pixelSize: 30
                             font.styleName: "Black"
                             font.family: "Inter Light"
+                            MouseArea{
+                                anchors.fill: parent
+                                cursorShape: Qt.PointingHandCursor
+                            }
                         }
                     }
 
