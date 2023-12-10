@@ -11,7 +11,12 @@ ApplicationWindow {
     height: 768
     color: "white"
     //visibility: Window.FullScreen
-    //flags: Qt.Window | Qt.FramelessWindowHint
+    maximumHeight: height
+    maximumWidth: width
+
+    minimumHeight: height
+    minimumWidth: width
+    flags: Qt.Window
     StackView {
         id: stackView
         anchors.fill: parent

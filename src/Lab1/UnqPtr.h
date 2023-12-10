@@ -2,7 +2,6 @@
 
 #include "SmrtPtr.h"
 
-// Unique Pointer
 template <typename T>
 class UnqPtr : public SmrtPtr<T> {
 public:

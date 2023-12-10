@@ -23,10 +23,13 @@ public slots:
     //SMART POINTERS
     QFuture<double> testMySmartPointer(int n) {
          return QtConcurrent::run([=]() {
+
+
+
             auto start = std::chrono::high_resolution_clock::now();
 
             std::vector<SmrtPtr<int>*> vec;
-            for(int i =0;i < n; ++i){
+            for(int i = 0; i < n; ++i){
                 vec.push_back(new SmrtPtr<int>(new int(i)));
             }
 
@@ -40,18 +43,21 @@ public slots:
             return duration.count()/1000.0;
         });
     }
+
     QFuture<double> testSequence(int n) {
         return QtConcurrent::run([=]() {
             auto start = std::chrono::high_resolution_clock::now();
 
-            int* arr = new int[n];
+            std::vector<int*> arr = std::vector<int*>();
             for (int i = 0; i < n; ++i) {
-                *(arr+i) = i;
+                arr.push_back(new int(i));
             }
-            delete[] arr;
+
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-
+            for (int i = 0; i < n; ++i) {
+                delete arr[i];
+            }
 
             emit  this->testSequenceResult(n, duration.count()/1000.0);
             return duration.count() / 1000.0;
@@ -63,16 +69,14 @@ public slots:
         return QtConcurrent::run([=]() {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::vector<ShrdPtr<int>*> vec;
+            std::vector<ShrdPtr<int>> vec;
             for(int i =0;i < n; ++i){
-                vec.push_back(new ShrdPtr<int>(new int(i)));
+                vec.push_back(ShrdPtr<int>(new int(i)));
             }
 
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
-            for(int i = 0; i < n; ++i){
-                delete vec[i];
-            }
+
             emit this->testMySharedResult(n, duration.count()/1000.0);
             return duration.count()/1000.0;
         });
@@ -98,16 +102,14 @@ public slots:
         return QtConcurrent::run([=]() {
             auto start = std::chrono::high_resolution_clock::now();
 
-            std::vector<UnqPtr<int>*> vec;
+            std::vector<UnqPtr<int>> vec;
             for(int i =0;i < n; ++i){
-                vec.push_back(new UnqPtr<int>(new int(i)));
+                vec.push_back(UnqPtr<int>(new int(i)));
             }
 
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
-            for(int i = 0; i < n; ++i){
-                delete vec[i];
-            }
+
             emit this->testMyUniqueResult(n, duration.count()/1000.0);
             return duration.count()/1000.0;
         });
@@ -138,16 +140,28 @@ public slots:
 
             for(int i = 0; i < n-1; i++){
                 *(index) = i;
-
-                //std::cout<<*(index)<<'\n';
                 index++;
             }
             delete[] memorySpan.getData();
             auto end = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end-start);
-            //std::cout<<duration<<'\n';
             emit this->testMyMemoryspanResult(n, duration.count()/1000.0);
             return duration.count()/1000.0;
+        });
+    }
+    QFuture<double> testSequenceMS(int n) {
+        return QtConcurrent::run([=]() {
+            auto start = std::chrono::high_resolution_clock::now();
+
+            std::vector<int> arr = std::vector<int>(n);
+            for (int i = 0; i < n; ++i) {
+                arr[i] = int(i);
+            }
+
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            emit  this->testSequenceResult(n, duration.count()/1000.0);
+            return duration.count() / 1000.0;
         });
     }
 

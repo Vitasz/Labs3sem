@@ -145,11 +145,9 @@ Page {
                             anchors.rightMargin: 150
                             anchors.right: mainShape.right
 
-                            text: "Задание: <a
-href='" + link + "'>useless_file.pdf</a>"
+                            text: "Задание: <a href='" + link + "'>useless_file.pdf</a>"
                             anchors.left: parent.left
                             anchors.bottom: parent.bottom
-                            onLinkActivated: Qt.openUrlExternally(link)
                             font.letterSpacing: 2
                             font.pixelSize: 30
                             font.styleName: "Black"
@@ -157,6 +155,9 @@ href='" + link + "'>useless_file.pdf</a>"
                             MouseArea{
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
+                                onClicked:{
+                                    Qt.openUrlExternally(parent.link)
+                                }
                             }
                         }
                     }
@@ -333,61 +334,70 @@ href='" + link + "'>useless_file.pdf</a>"
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "Smart Pointer"
                                 className: "SmrtPtr"
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>SmrtPtr</span> {
+<span style='color: #997700; font-weight: bold'>protected:</span>
+    T<span style='color: #333333'>*</span> ptr;
+
+<span style='color: #997700; font-weight: bold'>public:</span>
+    SmrtPtr(T<span style='color: #333333'>*</span> p) <span style='color: #333333'>:</span> ptr(p) {}
+
+    <span style='color: #333333'>~</span>SmrtPtr()
+    {
+        <span style='color: #008800; font-weight: bold'>if</span> (ptr) {
+            <span style='color: #008800; font-weight: bold'>delete</span> ptr;
+        }
+    }
+
+    <span style='color: #888888'>// Dereference operator</span>
+    T<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>*</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
+
+    <span style='color: #888888'>// Member access operator</span>
+    T<span style='color: #333333'>*</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>-&gt;</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
+};
+</pre></div>
+"
                             }
                             Lab1Card {
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "Unique Pointer"
                                 className: "UnqPtr"
-                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008080'>#pragma once</span>
-<span style='color: #000080; font-weight: bold'>template</span>&lt;<span style='color: #000080; font-weight: bold'>class</span> T&gt;
-<span style='color: #000080; font-weight: bold'>class</span> MemoryspanPtr {
-public:
-<span style='color: #008800; font-style: italic'>// Constructor</span>
-<span style='color: #000080; font-weight: bold'>explicit</span> MemoryspanPtr(T* ptr = nullptr) : m_ptr(ptr), m_refCount(<span style='color: #000080; font-weight: bold'>new</span> <span style='color: #000080; font-weight: bold'>int</span>(<span style='color: #0000FF'>1</span>)) {}
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>UnqPtr</span> <span style='color: #333333'>:</span> <span style='color: #008800; font-weight: bold'>public</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> {
+<span style='color: #997700; font-weight: bold'>public:</span>
+    UnqPtr(T<span style='color: #333333'>*</span> p) <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(p) {}
 
-<span style='color: #008800; font-style: italic'>// Copy constructor</span>
-MemoryspanPtr(<span style='color: #000080; font-weight: bold'>const</span> MemoryspanPtr&amp; other) : m_ptr(other.m_ptr), m_refCount(other.m_refCount) {
-(*m_refCount)++;
-}
+    <span style='color: #888888'>// Disable copy constructor and assignment</span>
+    UnqPtr(<span style='color: #008800; font-weight: bold'>const</span> UnqPtr<span style='color: #333333'>&amp;</span>) <span style='color: #333333'>=</span> <span style='color: #008800; font-weight: bold'>delete</span>;
+    UnqPtr<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>=</span>(<span style='color: #008800; font-weight: bold'>const</span> UnqPtr<span style='color: #333333'>&amp;</span>) <span style='color: #333333'>=</span> <span style='color: #008800; font-weight: bold'>delete</span>;
 
-<span style='color: #008800; font-style: italic'>// Destructor</span>
-~MemoryspanPtr() {
-release();
-}
+    <span style='color: #888888'>// Move constructor</span>
+    UnqPtr(UnqPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(other.ptr) {
+        other.ptr <span style='color: #333333'>=</span> nullptr;
+    }
 
-<span style='color: #008800; font-style: italic'>// Assignment operator</span>
-MemoryspanPtr&amp; <span style='color: #000080; font-weight: bold'>operator</span>=(<span style='color: #000080; font-weight: bold'>const</span> MemoryspanPtr&amp; other) {
-<span style='color: #000080; font-weight: bold'>if</span> (<span style='color: #000080; font-weight: bold'>this</span> != &amp;other) {
-release();
-m_ptr = other.m_ptr;
-m_refCount = other.m_refCount;
-(*m_refCount)++;
-}
-<span style='color: #000080; font-weight: bold'>return</span> *<span style='color: #000080; font-weight: bold'>this</span>;
-}
+    <span style='color: #888888'>// Move assignment</span>
+    UnqPtr<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>=</span>(UnqPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept {
+        <span style='color: #008800; font-weight: bold'>if</span> (<span style='color: #008800; font-weight: bold'>this</span> <span style='color: #333333'>!=</span> <span style='color: #333333'>&amp;</span>other) {
+            <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr <span style='color: #333333'>=</span> other.ptr;
+            other.ptr <span style='color: #333333'>=</span> nullptr;
+        }
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+    }
 
-<span style='color: #008800; font-style: italic'>// Dereference operator</span>
-T&amp; <span style='color: #000080; font-weight: bold'>operator</span>*() <span style='color: #000080; font-weight: bold'>const</span> {
-<span style='color: #000080; font-weight: bold'>return</span> *m_ptr;
-}
+    <span style='color: #888888'>// Dereference operator</span>
+    T<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>*</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
 
-<span style='color: #008800; font-style: italic'>// Arrow operator</span>
-T* <span style='color: #000080; font-weight: bold'>operator</span>-&gt;() <span style='color: #000080; font-weight: bold'>const</span> {
-<span style='color: #000080; font-weight: bold'>return</span> m_ptr;
-}
-
-private:
-T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointer to the managed object</span>
-<span style='color: #000080; font-weight: bold'>int</span>* m_refCount;      <span style='color: #008800; font-style: italic'>// Reference count</span>
-
-<span style='color: #008800; font-style: italic'>// Release the managed object and decrement the reference count</span>
-<span style='color: #000080; font-weight: bold'>void</span> release() {
-(*m_refCount)--;
-<span style='color: #000080; font-weight: bold'>if</span> (*m_refCount == <span style='color: #0000FF'>0</span>) {
-<span style='color: #000080; font-weight: bold'>delete</span> m_ptr;
-<span style='color: #000080; font-weight: bold'>delete</span> m_refCount;
-}
-}
+    <span style='color: #888888'>// Member access operator</span>
+    T<span style='color: #333333'>*</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>-&gt;</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
 };
 </pre></div>
 "
@@ -396,6 +406,80 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "Shared Pointer"
                                 className: "ShrdPtr"
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #888888'>// Shared Pointer</span>
+<span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>ShrdPtr</span> <span style='color: #333333'>:</span> <span style='color: #008800; font-weight: bold'>public</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> {
+<span style='color: #997700; font-weight: bold'>private:</span>
+    <span style='color: #333399; font-weight: bold'>unsigned</span> <span style='color: #333399; font-weight: bold'>int</span><span style='color: #333333'>*</span> referenceCount;
+
+<span style='color: #997700; font-weight: bold'>public:</span>
+    ShrdPtr(T<span style='color: #333333'>*</span> p) <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(p), referenceCount(<span style='color: #008800; font-weight: bold'>new</span> <span style='color: #333399; font-weight: bold'>unsigned</span> <span style='color: #333399; font-weight: bold'>int</span>(<span style='color: #0000DD; font-weight: bold'>1</span>)) {}
+
+    <span style='color: #888888'>// Copy constructor</span>
+    ShrdPtr(<span style='color: #008800; font-weight: bold'>const</span> ShrdPtr<span style='color: #333333'>&amp;</span> other) <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(other.ptr), referenceCount(other.referenceCount) {
+        (<span style='color: #333333'>*</span>referenceCount)<span style='color: #333333'>++</span>;
+    }
+
+    <span style='color: #888888'>// Copy assignment</span>
+    ShrdPtr<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>=</span>(<span style='color: #008800; font-weight: bold'>const</span> ShrdPtr<span style='color: #333333'>&amp;</span> other) {
+        <span style='color: #008800; font-weight: bold'>if</span> (<span style='color: #008800; font-weight: bold'>this</span> <span style='color: #333333'>!=</span> <span style='color: #333333'>&amp;</span>other) {
+            decrementReferenceCount();
+            <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr <span style='color: #333333'>=</span> other.ptr;
+            referenceCount <span style='color: #333333'>=</span> other.referenceCount;
+            (<span style='color: #333333'>*</span>referenceCount)<span style='color: #333333'>++</span>;
+        }
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+    }
+
+    <span style='color: #888888'>// Move constructor</span>
+    ShrdPtr(ShrdPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept <span style='color: #333333'>:</span> SmrtPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(other.ptr), referenceCount(other.referenceCount) {
+        other.ptr <span style='color: #333333'>=</span> nullptr;
+        other.referenceCount <span style='color: #333333'>=</span> nullptr;
+    }
+
+    <span style='color: #888888'>// Move assignment</span>
+    ShrdPtr<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>=</span>(ShrdPtr<span style='color: #333333'>&amp;&amp;</span> other) noexcept {
+        <span style='color: #008800; font-weight: bold'>if</span> (<span style='color: #008800; font-weight: bold'>this</span> <span style='color: #333333'>!=</span> <span style='color: #333333'>&amp;</span>other) {
+            decrementReferenceCount();
+            <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr <span style='color: #333333'>=</span> other.ptr;
+            referenceCount <span style='color: #333333'>=</span> other.referenceCount;
+            other.ptr <span style='color: #333333'>=</span> nullptr;
+            other.referenceCount <span style='color: #333333'>=</span> nullptr;
+        }
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+    }
+
+    <span style='color: #888888'>// Destructor</span>
+    <span style='color: #333333'>~</span>ShrdPtr() {
+        decrementReferenceCount();
+    }
+
+    <span style='color: #888888'>// Dereference operator</span>
+    T<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>*</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
+
+    <span style='color: #888888'>// Member access operator</span>
+    T<span style='color: #333333'>*</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>-&gt;</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+    }
+
+<span style='color: #997700; font-weight: bold'>private:</span>
+    <span style='color: #333399; font-weight: bold'>void</span> decrementReferenceCount() {
+        <span style='color: #008800; font-weight: bold'>if</span> (referenceCount) {
+            (<span style='color: #333333'>*</span>referenceCount)<span style='color: #333333'>--</span>;
+            <span style='color: #008800; font-weight: bold'>if</span> (<span style='color: #333333'>*</span>referenceCount <span style='color: #333333'>==</span> <span style='color: #0000DD; font-weight: bold'>0</span>) {
+                <span style='color: #008800; font-weight: bold'>delete</span> referenceCount;
+                <span style='color: #008800; font-weight: bold'>if</span> (<span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr){
+                    <span style='color: #008800; font-weight: bold'>delete</span> <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr;
+                    <span style='color: #008800; font-weight: bold'>this</span><span style='color: #333333'>-&gt;</span>ptr <span style='color: #333333'>=</span> nullptr;
+                }
+            }
+        }
+    }
+};
+</pre></div>
+"
                             }
                         }
 
@@ -410,11 +494,108 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "Memory Span"
                                 className: "MemorySpan"
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #888888'>// MemorySpan</span>
+<span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>MemorySpan</span> {
+<span style='color: #997700; font-weight: bold'>public:</span>
+    MemorySpan(T<span style='color: #333333'>*</span> data, <span style='color: #333399; font-weight: bold'>size_t</span> size) <span style='color: #333333'>:</span> data(data), size(size) {}
+    T<span style='color: #333333'>*</span> getData() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> data;
+    }
+    <span style='color: #333399; font-weight: bold'>size_t</span> getSize() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> size;
+    }
+    UnqPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> get(<span style='color: #333399; font-weight: bold'>size_t</span> index) <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>if</span> (index <span style='color: #333333'>&lt;</span> size) {
+            <span style='color: #008800; font-weight: bold'>return</span> UnqPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(<span style='color: #008800; font-weight: bold'>new</span> T(data[index]));
+        } <span style='color: #008800; font-weight: bold'>else</span> {
+            <span style='color: #008800; font-weight: bold'>throw</span> std<span style='color: #333333'>::</span>out_of_range(<span style='background-color: #fff0f0'>&quot;Index out of range&quot;</span>);
+        }
+    }
+
+    MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> locate(<span style='color: #333399; font-weight: bold'>size_t</span> index) <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>if</span> (index <span style='color: #333333'>&lt;</span> size) {
+            <span style='color: #008800; font-weight: bold'>return</span> MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(<span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>, index);
+        } <span style='color: #008800; font-weight: bold'>else</span> {
+            <span style='color: #008800; font-weight: bold'>throw</span> std<span style='color: #333333'>::</span>out_of_range(<span style='background-color: #fff0f0'>&quot;Index out of range&quot;</span>);
+        }
+    }
+
+    ShrdPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> copy(<span style='color: #333399; font-weight: bold'>size_t</span> index) <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>if</span> (index <span style='color: #333333'>&lt;</span> size) {
+            <span style='color: #008800; font-weight: bold'>return</span> ShrdPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span>(<span style='color: #008800; font-weight: bold'>new</span> T(data[index]));
+        } <span style='color: #008800; font-weight: bold'>else</span> {
+            <span style='color: #008800; font-weight: bold'>throw</span> std<span style='color: #333333'>::</span>out_of_range(<span style='background-color: #fff0f0'>&quot;Index out of range&quot;</span>);
+        }
+    }
+
+<span style='color: #997700; font-weight: bold'>private:</span>
+    T<span style='color: #333333'>*</span> data;
+    <span style='color: #333399; font-weight: bold'>size_t</span> size;
+};
+</pre></div>
+"
                             }
                             Lab1Card {
                                 iconPath: "qrc:/images/images/lab1.png"
                                 name: "MS Pointer"
                                 className: "MSPtr"
+                                textCode: "<!-- HTML generated using hilite.me --><div style='background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;'><pre style='margin: 0; line-height: 125%'><span style='color: #888888'>// MsPtr</span>
+<span style='color: #008800; font-weight: bold'>template</span> <span style='color: #333333'>&lt;</span><span style='color: #008800; font-weight: bold'>typename</span> T<span style='color: #333333'>&gt;</span>
+<span style='color: #008800; font-weight: bold'>class</span> <span style='color: #BB0066; font-weight: bold'>MsPtr</span> {
+<span style='color: #997700; font-weight: bold'>public:</span>
+    MsPtr(<span style='color: #008800; font-weight: bold'>const</span> MemorySpan<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> span, <span style='color: #333399; font-weight: bold'>size_t</span> index <span style='color: #333333'>=</span> <span style='color: #0000DD; font-weight: bold'>0</span>) <span style='color: #333333'>:</span> span(span), index(index) {}
+    T<span style='color: #333333'>*</span> getData() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> span.getData() <span style='color: #333333'>+</span> index;
+    }
+
+    <span style='color: #333399; font-weight: bold'>size_t</span> getSize() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> span.getSize() <span style='color: #333333'>-</span> index;
+    }
+
+    <span style='color: #888888'>// Pointer arithmetic</span>
+    MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>++</span>() {
+        <span style='color: #008800; font-weight: bold'>if</span> (index <span style='color: #333333'>==</span> span.getSize()<span style='color: #333333'>-</span><span style='color: #0000DD; font-weight: bold'>1</span>){
+            <span style='color: #008800; font-weight: bold'>throw</span> std<span style='color: #333333'>::</span>out_of_range(<span style='background-color: #fff0f0'>&quot;index out of range&quot;</span>);
+        }
+        <span style='color: #333333'>++</span>index;
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+    }
+
+    MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>++</span>(<span style='color: #333399; font-weight: bold'>int</span>) {
+        MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> temp <span style='color: #333333'>=</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+        <span style='color: #333333'>++</span>(<span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>);
+        <span style='color: #008800; font-weight: bold'>return</span> temp;
+    }
+
+    MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>--</span>() {
+        <span style='color: #008800; font-weight: bold'>if</span> (index<span style='color: #333333'>==</span><span style='color: #0000DD; font-weight: bold'>0</span>){
+            <span style='color: #008800; font-weight: bold'>throw</span> std<span style='color: #333333'>::</span>out_of_range(<span style='background-color: #fff0f0'>&quot;index out of range&quot;</span>);
+        }
+        <span style='color: #333333'>--</span>index;
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+    }
+
+    MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>--</span>(<span style='color: #333399; font-weight: bold'>int</span>) {
+        MsPtr<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;</span> temp <span style='color: #333333'>=</span> <span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>;
+        <span style='color: #333333'>--</span>(<span style='color: #333333'>*</span><span style='color: #008800; font-weight: bold'>this</span>);
+        <span style='color: #008800; font-weight: bold'>return</span> temp;
+    }
+
+    T<span style='color: #333333'>&amp;</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>*</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> <span style='color: #333333'>*</span>(span.getData()<span style='color: #333333'>+</span>index);
+    }
+
+    T<span style='color: #333333'>*</span> <span style='color: #008800; font-weight: bold'>operator</span><span style='color: #333333'>-&gt;</span>() <span style='color: #008800; font-weight: bold'>const</span> {
+        <span style='color: #008800; font-weight: bold'>return</span> span.getData() <span style='color: #333333'>+</span> index;
+    }
+
+<span style='color: #997700; font-weight: bold'>private:</span>
+    <span style='color: #008800; font-weight: bold'>const</span> MemorySpan<span style='color: #333333'>&lt;</span>T<span style='color: #333333'>&gt;&amp;</span> span;
+    <span style='color: #333399; font-weight: bold'>size_t</span> index;
+};
+</pre></div>
+"
                             }
                         }
                     }
@@ -1398,7 +1579,7 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
                                                     memoryspanAxisYbig.max = result + 0.1
                                                 if (n < memoryspanTestClassbig.finish) {
                                                     exit.enabled = false
-                                                    memoryspanTestClassbig.testSequence(
+                                                    memoryspanTestClassbig.testSequenceMS(
                                                                 n + memoryspanTestClassbig.step)
                                                 } else {
                                                     exit.enabled = false
@@ -1427,7 +1608,7 @@ T* m_ptr;             <span style='color: #008800; font-style: italic'>// Pointe
 
                                         }
                                         Component.onCompleted: {
-                                            memoryspanTestClassbig.testSequence(
+                                            memoryspanTestClassbig.testSequenceMS(
                                                         memoryspanTestClassbig.start)
                                         }
                                     }

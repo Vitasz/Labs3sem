@@ -1,6 +1,5 @@
 #pragma once
 
-// Smart Pointer Base Class
 template <typename T>
 class SmrtPtr {
 protected:

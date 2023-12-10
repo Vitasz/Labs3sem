@@ -2,9 +2,74 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-#include "../../../Labs3sem/src/Lab2/SortingAlgorithms.h"
 #include <string>
-// add necessary includes here
+
+#include "../../src/Lab2/SortingAlgorithms.h"
+#include "../../src/Lab1/Lab1.h"
+
+class SmartPointerTests : public QObject {
+    Q_OBJECT
+
+private slots:
+    // Test case for Unique Pointer
+    void testUniquePointer() {
+        int* rawPointer = new int(42);
+
+        // Test creation of Unique Pointer
+        UnqPtr<int> uniquePtr(rawPointer);
+        QVERIFY(uniquePtr.operator->() == rawPointer);
+        QVERIFY(*uniquePtr == 42);
+
+        // Test move constructor
+        UnqPtr<int> movedPtr(std::move(uniquePtr));
+        QVERIFY(uniquePtr.operator->() == nullptr); // Original pointer should be null
+        QVERIFY(*movedPtr == 42);
+
+        // Test move assignment
+        UnqPtr<int> anotherUniquePtr;
+        anotherUniquePtr = std::move(movedPtr);
+        QVERIFY(movedPtr.operator->() == nullptr); // Original pointer should be null
+        QVERIFY(*anotherUniquePtr == 42);
+    }
+
+    // Test case for Shared Pointer
+    void testSharedPointer() {
+        int* rawPointer = new int(42);
+
+        // Test creation of Shared Pointer
+        ShrdPtr<int> sharedPtr(rawPointer);
+        QVERIFY(sharedPtr.operator->() == rawPointer);
+        QVERIFY(*sharedPtr == 42);
+
+        // Test copy constructor
+        ShrdPtr<int> copiedPtr(sharedPtr);
+        QVERIFY(sharedPtr.operator->() == rawPointer); // Original pointer should remain unchanged
+        QVERIFY(*copiedPtr == 42);
+
+        // Test copy assignment
+        ShrdPtr<int> anotherSharedPtr;
+        anotherSharedPtr = sharedPtr;
+        QVERIFY(sharedPtr.operator->() == rawPointer); // Original pointer should remain unchanged
+        QVERIFY(*anotherSharedPtr == 42);
+
+        // Test move constructor
+        ShrdPtr<int> movedPtr(std::move(sharedPtr));
+        QVERIFY(sharedPtr.operator->() == nullptr); // Original pointer should be null
+        QVERIFY(*movedPtr == 42);
+
+        // Test move assignment
+        ShrdPtr<int> yetAnotherSharedPtr;
+        yetAnotherSharedPtr = std::move(movedPtr);
+        QVERIFY(movedPtr.operator->() == nullptr); // Original pointer should be null
+        QVERIFY(*yetAnotherSharedPtr == 42);
+
+        // Test reference counting
+        ShrdPtr<int> sharedPtr1(rawPointer);
+        ShrdPtr<int> sharedPtr2 = sharedPtr1;
+        QVERIFY(*sharedPtr1 == 42);
+        QVERIFY(*sharedPtr2 == 42);
+    }
+};
 
 class SortsTests : public QObject
 {
@@ -81,6 +146,7 @@ private slots:
         radixSort(arr);
         QVERIFY(isSorted(arr, std::less<int>()));
     }
+
     void testBubbleSortString() {
         int n = 10000;
         std::vector<std::string> arr(n);
@@ -89,7 +155,6 @@ private slots:
         std::uniform_int_distribution<int> distribution(1, n);
 
         for (int i = 0; i < n; i++) {
-            // Generate random strings of length 5
             arr[i] = generateRandomString(5, gen);
         }
 
@@ -105,7 +170,6 @@ private slots:
         std::uniform_int_distribution<int> distribution(1, n);
 
         for (int i = 0; i < n; i++) {
-            // Generate random strings of length 5
             arr[i] = generateRandomString(5, gen);
         }
 
@@ -121,7 +185,6 @@ private slots:
         std::uniform_int_distribution<int> distribution(1, n);
 
         for (int i = 0; i < n; i++) {
-            // Generate random strings of length 5
             arr[i] = generateRandomString(5, gen);
         }
 
@@ -129,9 +192,8 @@ private slots:
         QVERIFY(isSorted(arr, std::less<std::string>()));
     }
 
-
 };
 
-QTEST_APPLESS_MAIN(SortsTests)
+QTEST_APPLESS_MAIN(SmartPointerTests)
 
 #include "tst_sortstests.moc"

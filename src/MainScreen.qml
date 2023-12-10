@@ -110,19 +110,6 @@ Page  {
         }
         transformOrigin: Item.Left
 
-        Image {
-            id: menuicon
-            x: 24
-            width: 43
-            height: 34
-            source: "images/images/Menu_icon.svg"
-            anchors.topMargin: 30
-            z: 1
-            anchors.top: parent.top
-            transformOrigin: Item.Top
-            fillMode: Image.PreserveAspectFit
-        }
-
     }
 
 

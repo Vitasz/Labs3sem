@@ -56,11 +56,12 @@ Page {
             transformOrigin: Item.Top
             fillMode: Image.PreserveAspectFit
             visible: false
+
             MouseArea{
                 id: exit
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                enabled: true
+                enabled: false
                 onClicked: {
                     stackView.pop()
                 }
@@ -144,12 +145,9 @@ Page {
                             anchors.bottomMargin: 10
                             anchors.rightMargin: 150
                             anchors.right: mainShape.right
-                            text: "Задание: <a
-href='" + link + "'>useless_file.pdf</a>"
+                            text: "Задание: <a href='" + link + "'>useless_file.pdf</a>"
                             anchors.left: parent.left
                             anchors.bottom: parent.bottom
-                            onLinkActivated: Qt.openUrlExternally(link)
-
                             font.letterSpacing: 2
                             font.pixelSize: 30
                             font.styleName: "Black"
@@ -157,6 +155,9 @@ href='" + link + "'>useless_file.pdf</a>"
                             MouseArea{
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    Qt.openUrlExternally(parent.link)
+                                }
                             }
                         }
                     }
