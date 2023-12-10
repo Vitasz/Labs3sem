@@ -54,3 +54,14 @@
 11	800	7239373079930525	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
 813	4771	7239373119635218	CMakeFiles/SortsTests.dir/tst_sortstests.cpp.obj	49d11d91bc0954fd
 4772	4879	7239373120695272	SortsTests.exe	6ff5738dcb2f202e
+5	24	0	CMakeFiles/clean.additional	7155004b3956b606
+25	30	0	clean	9c4b4372737ab8da
+10	28	0	CMakeFiles/clean.additional	7155004b3956b606
+29	34	0	clean	9c4b4372737ab8da
+13	796	7239415524035069	SortsTests_autogen/timestamp	c3fd48efd196d4ce
+13	796	7239415524035069	SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+13	796	7239415524035069	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/timestamp	c3fd48efd196d4ce
+13	796	7239415524035069	C:/qtProjects/Labs3sem/tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/SortsTests_autogen/mocs_compilation.cpp	c3fd48efd196d4ce
+797	844	7239415524995077	CMakeFiles/SortsTests.dir/SortsTests_autogen/mocs_compilation.cpp.obj	71603e841a81695c
+799	4550	7239415562021595	CMakeFiles/SortsTests.dir/tst_sortstests.cpp.obj	49d11d91bc0954fd
+4550	4652	7239415563031620	SortsTests.exe	6ff5738dcb2f202e

@@ -1,6 +1,7 @@
+win32:CONFIG(release, debug|release): SUBSYSTEM = WINDOWS
 QT += core qml quickwidgets concurrent testlib
 QT += charts
-CONFIG += c++2a
+CONFIG += c++2a gui
 
 #LIBS += -L. -lQtCharts
 HEADERS = $$files($$PWD/src/*.h) \ $$files($$PWD/src/Lab1/*.h) \

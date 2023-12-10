@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="test.qml">src/test.qml</file>
+        <file alias="MainScreen.qml">src/MainScreen.qml</file>
+        <file alias="LabCard.qml">src/LabCard.qml</file>
+        <file alias="Lab3Screen.qml">src/Lab3Screen.qml</file>
+        <file alias="Lab4Screen.qml">src/Lab4Screen.qml</file>
+        <file alias="MainWindow.qml">src/MainWindow.qml</file>
+        <file alias="Menu.qml">src/Menu.qml</file>
+    </qresource>
+    <qresource prefix="/Lab1">
+        <file alias="Lab1Screen.qml">src/Lab1Screen.qml</file>
+        <file alias="MainButton.qml">src/MainButton.qml</file>
+        <file alias="MainDottedLine.qml">src/MainDottedLine.qml</file>
+        <file alias="Lab1Card.qml">src/Lab1Card.qml</file>
+        <file alias="CodePopup.qml">src/CodePopup.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file alias="images/home.svg">src/images/home.svg</file>
+        <file alias="images/lab1.png">src/images/lab1.png</file>
+        <file alias="images/lab2.png">src/images/lab2.png</file>
+        <file alias="images/lab3.png">src/images/lab3.png</file>
+        <file alias="images/lab4.png">src/images/lab4.png</file>
+        <file alias="images/logo.svg">src/images/logo.svg</file>
+        <file alias="images/Menu_icon.svg">src/images/Menu_icon.svg</file>
+        <file alias="images/exit_icon.svg">src/images/exit_icon.svg</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="fonts/Inter-Black.ttf">src/fonts/Inter-Black.ttf</file>
+        <file alias="fonts/Inter-Bold.ttf">src/fonts/Inter-Bold.ttf</file>
+        <file alias="fonts/Inter-ExtraBold.ttf">src/fonts/Inter-ExtraBold.ttf</file>
+        <file alias="fonts/Inter-ExtraLight.ttf">src/fonts/Inter-ExtraLight.ttf</file>
+        <file alias="fonts/Inter-Light.ttf">src/fonts/Inter-Light.ttf</file>
+        <file alias="fonts/Inter-Medium.ttf">src/fonts/Inter-Medium.ttf</file>
+        <file alias="fonts/Inter-Regular.ttf">src/fonts/Inter-Regular.ttf</file>
+        <file alias="fonts/Inter-SemiBold.ttf">src/fonts/Inter-SemiBold.ttf</file>
+        <file alias="fonts/Inter-Thin.ttf">src/fonts/Inter-Thin.ttf</file>
+        <file alias="fonts/AzeretMono-Italic.ttf">src/fonts/AzeretMono-Italic.ttf</file>
+        <file alias="fonts/AzeretMono-Light.ttf">src/fonts/AzeretMono-Light.ttf</file>
+    </qresource>
+    <qresource prefix="/Lab2">
+        <file alias="SortsVisualizer.qml">src/SortsVisualizer.qml</file>
+        <file alias="Lab2Screen.qml">src/Lab2Screen.qml</file>
+    </qresource>
+</RCC>

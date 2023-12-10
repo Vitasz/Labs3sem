@@ -88,8 +88,8 @@ Page {
             visible: true
             anchors.fill: itminfo
 
-            //contentWidth:  itminfo.width
             ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+
             contentHeight: column.height + 50
 
             ColumnLayout {

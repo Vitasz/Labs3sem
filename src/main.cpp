@@ -1,13 +1,14 @@
 #include <QQmlContext>
 #include <QApplication>
 #include <QQmlApplicationEngine>
-
+#include <Windows.h>
 
 #include "Lab1/TestClassSmartPointers.h"
 #include "Lab2/TestClassSorts.h"
 #include <QDebug>
-
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 int main(int argc, char** argv){
+    FreeConsole();
     QApplication app(argc, argv); //Here etc..
 
     QQmlApplicationEngine engine(&app);

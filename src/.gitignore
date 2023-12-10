@@ -1,2 +1,5 @@
-
+Deployment/
+release/
+debug/
+.qtc_clangd/
 *.pdf
