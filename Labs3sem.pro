@@ -5,10 +5,13 @@ CONFIG += c++2a gui
 
 #LIBS += -L. -lQtCharts
 HEADERS = $$files($$PWD/src/*.h) \ $$files($$PWD/src/Lab1/*.h) \
+    src/Lab3/DynamicHashMap.h \
+    src/Lab3/DynamicHashMapWrapper.h \
     src/Lab1/TestClassSmartPointers.h \
     src/Lab2/SortingAlgorithms.h \
     src/Lab2/TestClassSorts.h \
-    src/Lab2/test.h
+    src/Lab2/test.h \
+    src/Lab4/TestClassPaths.h
 SOURCES = $$files($$PWD/src/*.cpp)
 
 #SOURCES += $$files($$PWD/test/*.cpp)

@@ -73,6 +73,7 @@ Page  {
                     labName: "Лабораторная работа №3"
                     shortInfo1: "<html><ul><li>Dictionary</li><li>Search tree</li></html>"
                     shortInfo2: "<html><ul><li>Minimax</li><li>Data search</li></html>"
+                    labLoad: "qrc:/Lab3/Lab3Screen.qml"
                 }
 
                 LabCard {
@@ -82,6 +83,7 @@ Page  {
                     labName: "Лабораторная работа №4"
                     shortInfo1: "<html><ul><li>Graphs</li><li>Coloring</li></html>"
                     shortInfo2: "<html><ul><li>Pathfinding</li><li>Priority queue</li></html>"
+                    labLoad: "qrc:/Lab4/Lab4Screen.qml"
                 }
 
 

@@ -7,12 +7,13 @@ Shape{
     height: 200
     property string bttnText: ""
     property int scrollTo: 0
+    property string backgroundColor: "white"
     ShapePath {
         id: shapepath
         //anchors.right: parent
         strokeWidth: 5
         strokeColor: "#03053C"
-        fillColor: "white"
+        fillColor: backgroundColor
 
         startX: 0; startY: 0
         PathLine{ x: -90; y: 200 }
@@ -37,7 +38,7 @@ Shape{
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
-        font.letterSpacing: 4
+        font.letterSpacing: 2
         font.pixelSize: 40
         font.styleName: "Black"
         font.family: "Inter Black"
@@ -54,7 +55,7 @@ Shape{
         }
 
         onExited: {
-            shapepath.fillColor = "white"
+            shapepath.fillColor = backgroundColor
             shapepath.strokeColor = "#03053C"
             text.color = "#000000"
         }

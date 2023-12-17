@@ -2,4 +2,5 @@ Deployment/
 release/
 debug/
 tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/
-
+.qtc_clangd/
+tests/build-Tests-Desktop_Qt_6_6_0_shared_MinGW_w64_MINGW64_MSYS2-Debug/

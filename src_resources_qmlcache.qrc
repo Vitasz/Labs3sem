@@ -1,13 +1,9 @@
 <?xml version="1.0"?>
 <RCC>
     <qresource prefix="/">
-        <file alias="test.qml">src/test.qml</file>
         <file alias="MainScreen.qml">src/MainScreen.qml</file>
         <file alias="LabCard.qml">src/LabCard.qml</file>
-        <file alias="Lab3Screen.qml">src/Lab3Screen.qml</file>
-        <file alias="Lab4Screen.qml">src/Lab4Screen.qml</file>
         <file alias="MainWindow.qml">src/MainWindow.qml</file>
-        <file alias="Menu.qml">src/Menu.qml</file>
     </qresource>
     <qresource prefix="/Lab1">
         <file alias="Lab1Screen.qml">src/Lab1Screen.qml</file>
@@ -42,5 +38,15 @@
     <qresource prefix="/Lab2">
         <file alias="SortsVisualizer.qml">src/SortsVisualizer.qml</file>
         <file alias="Lab2Screen.qml">src/Lab2Screen.qml</file>
+    </qresource>
+    <qresource prefix="/Lab3">
+        <file alias="Lab3Screen.qml">src/Lab3Screen.qml</file>
+        <file alias="DynamicHashMapVis.qml">src/DynamicHashMapVis.qml</file>
+        <file alias="TicTacToe.qml">src/TicTacToe.qml</file>
+        <file alias="MyPopup.qml">src/MyPopup.qml</file>
+    </qresource>
+    <qresource prefix="/Lab4">
+        <file alias="Lab4Screen.qml">src/Lab4Screen.qml</file>
+        <file alias="PathFindingVis.qml">src/PathFindingVis.qml</file>
     </qresource>
 </RCC>

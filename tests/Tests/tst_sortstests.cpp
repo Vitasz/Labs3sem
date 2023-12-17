@@ -6,6 +6,29 @@
 
 #include "../../src/Lab2/SortingAlgorithms.h"
 #include "../../src/Lab1/Lab1.h"
+#include "../../src/DynamicHashMap.h"
+
+class Person {
+public:
+    std::string name;
+    int age;
+
+    Person(const std::string& n, int a) : name(n), age(a) {}
+
+    // For simplicity, consider only 'name' for equality comparison
+    bool operator==(const Person& other) const {
+        return name == other.name;
+    }
+};
+
+namespace std {
+    template <>
+    struct hash<Person> {
+        std::size_t operator()(const Person& p) const {
+        return std::hash<std::string>{}(p.name + to_string(p.age));
+        }
+    };
+}
 
 class SmartPointerTests : public QObject {
     Q_OBJECT
@@ -256,6 +279,119 @@ private slots:
 
 };
 
-QTEST_APPLESS_MAIN(SmartPointerTests)
-//QTEST_APPLESS_MAIN(SortsTests)
+class TestDynamicHashMap : public QObject {
+    Q_OBJECT
+
+private slots:
+    void testInsertAndFind() {
+        DynamicHashMap<std::string, size_t> dynamicHashMap;
+
+        dynamicHashMap.insert("Alice", 25);
+        dynamicHashMap.insert("Bob", 30);
+        dynamicHashMap.insert("Charlie", 22);
+
+        std::vector<size_t> ages;
+
+        QVERIFY(dynamicHashMap.find("Alice", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(25));
+
+        QVERIFY(dynamicHashMap.find("Bob", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(30));
+
+        QVERIFY(dynamicHashMap.find("Charlie", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(22));
+
+        QVERIFY(!dynamicHashMap.find("David", ages));
+    }
+
+    void testRemove() {
+        DynamicHashMap<std::string, size_t> dynamicHashMap;
+
+        dynamicHashMap.insert("Alice", 25);
+        dynamicHashMap.insert("Bob", 30);
+
+        std::vector<size_t> ages;
+
+        QVERIFY(dynamicHashMap.find("Alice", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(25));
+
+        QVERIFY(dynamicHashMap.find("Bob", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(30));
+
+        dynamicHashMap.remove("Alice");
+
+        QVERIFY(!dynamicHashMap.find("Alice", ages));
+        QVERIFY(dynamicHashMap.find("Bob", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(30));
+
+        QVERIFY(!dynamicHashMap.find("Charlie", ages));
+    }
+
+    void testResizeAndRehash() {
+        DynamicHashMap<std::string, size_t> dynamicHashMap;
+
+        // Insert enough elements to trigger a resize
+        for (int i = 0; i < 20; ++i) {
+            dynamicHashMap.insert("Key" + std::to_string(i), i);
+        }
+
+        // Check if elements are still accessible after resize
+        for (int i = 0; i < 20; ++i) {
+            std::vector<size_t> values;
+            QVERIFY(dynamicHashMap.find("Key" + std::to_string(i), values));
+            QCOMPARE(values.size(), size_t(1));
+            QCOMPARE(values[0], size_t(i));
+        }
+    }
+
+    void testMultipleObjectsWithSameKey() {
+        DynamicHashMap<std::string, size_t> dynamicHashMap;
+
+        dynamicHashMap.insert("Alice", 25);
+        dynamicHashMap.insert("Bob", 30);
+        dynamicHashMap.insert("Alice", 35);
+
+        std::vector<size_t> ages;
+
+        QVERIFY(dynamicHashMap.find("Alice", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(35));
+
+        QVERIFY(dynamicHashMap.find("Bob", ages));
+        QCOMPARE(ages.size(), size_t(1));
+        QCOMPARE(ages[0], size_t(30));
+
+        QVERIFY(!dynamicHashMap.find("Charlie", ages));
+    }
+
+    void testClassAsKey() {
+        DynamicHashMap<Person, std::string> dynamicHashMap;
+
+        Person person1("Alice", 25);
+        Person person2("Bob", 30);
+
+        dynamicHashMap.insert(person1, "Person Alice, Age 25");
+        dynamicHashMap.insert(person2, "Person Bob, Age 30");
+
+        std::vector<std::string> descriptions;
+
+        QVERIFY(dynamicHashMap.find(person1, descriptions));
+        QCOMPARE(descriptions.size(), size_t(1));
+        QVERIFY(std::find(descriptions.begin(), descriptions.end(), "Person Alice, Age 25") != descriptions.end());
+
+        QVERIFY(dynamicHashMap.find(person2, descriptions));
+        QCOMPARE(descriptions.size(), size_t(1));
+        QVERIFY(std::find(descriptions.begin(), descriptions.end(), "Person Bob, Age 30") != descriptions.end());
+
+        QVERIFY(!dynamicHashMap.find(Person("David", 40), descriptions));
+    }
+};
+
+QTEST_APPLESS_MAIN(TestDynamicHashMap)
 #include "tst_sortstests.moc"
